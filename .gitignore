@@ -1,0 +1,6 @@
+.build
+.env
+lib
+node_modules
+*.sublime-project
+*.sublime-workspace
