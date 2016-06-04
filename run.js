@@ -8,12 +8,13 @@ commander
 
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
-const webpackConfig = require('./webpack.config');
+const webpackConfigExamplesDev = require('./webpack.config');
+const webpackConfigExamplesDist = require('./webpack.config.examples_dist');
 
 function webpackServer(compiler) {
   new WebpackDevServer(compiler, {
     contentBase: path.resolve(__dirname, 'build'),
-    publicPath: webpackConfig.output.publicPath,
+    publicPath: webpackConfigExamplesDev.output.publicPath,
     hot: true,
     inline: true,
     historyApiFallback: true,
@@ -25,7 +26,10 @@ function webpackServer(compiler) {
   });
 }
 
-const compiler = webpack(webpackConfig);
+const compiler = commander.watch
+  ? webpack(webpackConfigExamplesDev)
+  : webpack(webpackConfigExamplesDist);
+
 if (commander.watch) {
   webpackServer(compiler);
 } else {
