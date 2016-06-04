@@ -16,7 +16,7 @@ class CoverExample extends Component {
 
   render() {
     const videoOptions = {
-      src: 'http://trailers.divx.com/divx_prod/profiles/WiegelesHeliSki_DivXPlus_19Mbps.mkv',
+      src: 'http://ia800502.us.archive.org/10/items/WebmVp8Vorbis/webmvp8.webm',
       autoPlay: true,
       loop: true,
     };
