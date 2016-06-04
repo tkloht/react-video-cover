@@ -24472,7 +24472,7 @@
 	  null,
 	  _react2.default.createElement(
 	    _reactRouter.Route,
-	    { path: '/', component: _App2.default },
+	    { path: '/react-video-cover', component: _App2.default },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _ResizableCoverExample2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'example1', component: _ResizableCoverExample2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'example2', component: _BackgroundCoverExample2.default })
@@ -24880,7 +24880,7 @@
 	          null,
 	          _react2.default.createElement(
 	            _reactRouter.IndexLink,
-	            { to: '/example1' },
+	            { to: '/react-video-cover/example1' },
 	            'Example 1'
 	          )
 	        ),
@@ -24889,7 +24889,7 @@
 	          null,
 	          _react2.default.createElement(
 	            _reactRouter.IndexLink,
-	            { to: '/example2' },
+	            { to: '/react-video-cover/example2' },
 	            'Example 2'
 	          )
 	        )

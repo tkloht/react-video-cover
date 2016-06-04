@@ -8,7 +8,7 @@ import CoverExample2 from './BackgroundCoverExample';
 
 export default (
   <Route>
-    <Route path="/" component={App}>
+    <Route path="/react-video-cover" component={App}>
       <IndexRoute component={CoverExample1} />
       <Route path="example1" component={CoverExample1} />
       <Route path="example2" component={CoverExample2} />
