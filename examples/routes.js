@@ -1,10 +1,10 @@
 import './styles.css';
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import App from './components/App';
-import NoMatch from './components/NoMatch';
-import CoverExample1 from './components/Cover';
-import CoverExample2 from './components/Examples/BackgroundCover';
+import App from './App';
+import NoMatch from './NoMatch';
+import CoverExample1 from './ResizableCoverExample';
+import CoverExample2 from './BackgroundCoverExample';
 
 export default (
   <Route>
