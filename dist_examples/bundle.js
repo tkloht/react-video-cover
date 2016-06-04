@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "/react-video-cover";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -25013,9 +25013,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Cover = __webpack_require__(230);
+	var _VideoCover = __webpack_require__(230);
 
-	var _Cover2 = _interopRequireDefault(_Cover);
+	var _VideoCover2 = _interopRequireDefault(_VideoCover);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25078,7 +25078,7 @@
 	                height: '100%'
 	              }
 	            },
-	            _react2.default.createElement(_Cover2.default, {
+	            _react2.default.createElement(_VideoCover2.default, {
 	              videoOptions: videoOptions,
 	              forceFallback: true,
 	              getResizeNotifyer: function getResizeNotifyer(resizeNotifyer) {
@@ -25116,9 +25116,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _CoverFallback = __webpack_require__(231);
+	var _VideoCoverFallback = __webpack_require__(231);
 
-	var _CoverFallback2 = _interopRequireDefault(_CoverFallback);
+	var _VideoCoverFallback2 = _interopRequireDefault(_VideoCoverFallback);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25139,16 +25139,16 @@
 	 * just have a look at the styles for the non-fallback implementation
 	 */
 
-	var Cover = function (_Component) {
-	  _inherits(Cover, _Component);
+	var VideoCover = function (_Component) {
+	  _inherits(VideoCover, _Component);
 
-	  function Cover() {
-	    _classCallCheck(this, Cover);
+	  function VideoCover() {
+	    _classCallCheck(this, VideoCover);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Cover).apply(this, arguments));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(VideoCover).apply(this, arguments));
 	  }
 
-	  _createClass(Cover, [{
+	  _createClass(VideoCover, [{
 	    key: 'render',
 	    value: function render() {
 	      var style = _extends({}, this.props.style, {
@@ -25158,7 +25158,7 @@
 	      });
 	      switch (this.props.forceFallback) {
 	        case true:
-	          return _react2.default.createElement(_CoverFallback2.default, this.props);
+	          return _react2.default.createElement(_VideoCoverFallback2.default, this.props);
 	        case false:
 	        default:
 	          return _react2.default.createElement('video', _extends({
@@ -25168,10 +25168,10 @@
 	    }
 	  }]);
 
-	  return Cover;
+	  return VideoCover;
 	}(_react.Component);
 
-	Cover.propTypes = {
+	VideoCover.propTypes = {
 	  /**
 	   * this component will use object-fit: cover if available.
 	   * this should be the case in all modern browsers except IE.
@@ -25202,10 +25202,10 @@
 	   */
 	  className: _react.PropTypes.string
 	};
-	Cover.defaultProps = {
+	VideoCover.defaultProps = {
 	  forceFallback: false
 	};
-	exports.default = Cover;
+	exports.default = VideoCover;
 
 /***/ },
 /* 231 */
@@ -25344,9 +25344,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Cover = __webpack_require__(230);
+	var _VideoCover = __webpack_require__(230);
 
-	var _Cover2 = _interopRequireDefault(_Cover);
+	var _VideoCover2 = _interopRequireDefault(_VideoCover);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25397,7 +25397,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { style: style },
-	        _react2.default.createElement(_Cover2.default, {
+	        _react2.default.createElement(_VideoCover2.default, {
 	          videoOptions: videoOptions,
 	          getResizeNotifyer: function getResizeNotifyer(resizeNotifyer) {
 	            _this2.setState({
