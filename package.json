@@ -1,8 +1,10 @@
 {
   "name": "react-video-cover",
-  "version": "1.0.0",
-  "private": true,
-  "description": "",
+  "version": "0.3.0",
+  "description": "displays video with object-fit: cover, with fallback for IE",
+  "homepage": "http://t-obi.github.io/react-video-cover/",
+  "bugs": "https://github.com/t-obi/react-video-cover/issues",
+  "repository": "github:t-obi/react-video-cover",
   "scripts": {
     "start": "./build_examples.js --watch",
     "build-examples": "./build_examples.js",
@@ -12,9 +14,19 @@
     "eslint-fix": "eslint --fix src",
     "gh-pages": "git subtree push --prefix dist_examples origin gh-pages"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
+  "author": "Tobias Kloht",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "directories": {
+    "lib": "./lib",
+    "example": "./examples"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0"
+  },
+  "devDependencies": {
     "babel-cli": "6.5.1",
     "babel-core": "6.5.1",
     "babel-eslint": "4.1.8",
