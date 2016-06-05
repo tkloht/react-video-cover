@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Cover from '../lib/VideoCover';
+import css from './styles.css';
 
 const style = {
   width: 100,
@@ -13,16 +14,46 @@ class CoverExample extends Component {
 
   state = {
     resizeNotifyer: () => {},
-  }
+    forceFallback: false,
+  };
 
   render() {
     const videoOptions = {
       src: 'https://ia800502.us.archive.org/10/items/WebmVp8Vorbis/webmvp8.webm',
+      ref: videoRef => {
+        this.videoRef = videoRef;
+      },
+      onClick: () => {
+        if (this.videoRef && this.videoRef.paused) {
+          this.videoRef.play();
+        } else if (this.videoRef) {
+          this.videoRef.pause();
+        }
+      },
+      title: 'click to play/pause',
     };
 
     return (
-      <div>
-        <input type="button" value="resize" onClick={this.state.resizeNotifyer} />
+      <div className={css.ResizableExample}>
+        <div className={css.Input}>
+          <input
+            type="checkbox"
+            checked={this.state.forceFallback}
+            onClick={() => {
+              this.setState({
+                forceFallback: !this.state.forceFallback,
+              });
+            }}
+          />
+          <span>Force IE-Fallback in non-IE Browsers</span>
+        </div>
+        <div className={css.Input}>
+          <input type="button" value="resize" onClick={this.state.resizeNotifyer} />
+          <span>
+            When using the IE-Fallback click this button to notify that a resize has happened.
+            Without the IE Fallback this is not necessary and will do nothing.
+          </span>
+        </div>
         <div style={style} >
           <div
             style={{
@@ -33,7 +64,7 @@ class CoverExample extends Component {
           >
             <Cover
               videoOptions={videoOptions}
-              forceFallback
+              forceFallback={this.state.forceFallback}
               getResizeNotifyer={resizeNotifyer => {
                 this.setState({
                   resizeNotifyer,
