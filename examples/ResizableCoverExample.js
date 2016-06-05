@@ -20,7 +20,7 @@ class CoverExample extends Component {
 
   render() {
     const videoOptions = {
-      src: 'https://ia800502.us.archive.org/10/items/WebmVp8Vorbis/webmvp8.webm',
+      src: 'http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4',
       ref: videoRef => {
         this.videoRef = videoRef;
       },
