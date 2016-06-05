@@ -25581,7 +25581,8 @@
 
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(CoverExample)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
 	      resizeNotifyer: function resizeNotifyer() {},
-	      forceFallback: false
+	      forceFallback: false,
+	      remeasureOnWindowResize: false
 	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 
@@ -25608,6 +25609,24 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: _styles2.default.ResizableExample },
+	        _react2.default.createElement(
+	          'div',
+	          { className: _styles2.default.Input },
+	          _react2.default.createElement('input', {
+	            type: 'checkbox',
+	            checked: this.state.remeasureOnWindowResize,
+	            onClick: function onClick() {
+	              _this2.setState({
+	                remeasureOnWindowResize: !_this2.state.remeasureOnWindowResize
+	              });
+	            }
+	          }),
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            'Remeasure on window resize'
+	          )
+	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { className: _styles2.default.Input },
@@ -25651,6 +25670,7 @@
 	            _react2.default.createElement(_VideoCover2.default, {
 	              videoOptions: videoOptions,
 	              forceFallback: this.state.forceFallback,
+	              remeasureOnWindowResize: this.state.remeasureOnWindowResize,
 	              getResizeNotifyer: function getResizeNotifyer(resizeNotifyer) {
 	                _this2.setState({
 	                  resizeNotifyer: resizeNotifyer
@@ -25726,7 +25746,7 @@
 	        width: '100%',
 	        height: '100%'
 	      });
-	      switch (this.props.forceFallback) {
+	      switch (this.props.forceFallback || /MSIE|Trident/.test(navigator.userAgent)) {
 	        case true:
 	          return _react2.default.createElement(_VideoCoverFallback2.default, this.props);
 	        case false:
@@ -25750,6 +25770,15 @@
 	   */
 	  forceFallback: _react.PropTypes.bool,
 	  /**
+	   * default: false
+	   * if set an event listener on window-resize is added when the Fallback is used
+	   * it will re-evaluate the aspect-ratio and update if necessary
+	   * (basically the same as using the function from getResizeNotifyer in window resize)
+	   * will only affect the Fallback component
+	   */
+	  remeasureOnWindowResize: _react.PropTypes.bool,
+	  /**
+	   * default: false
 	   * pass a function. when when the fallback is mounted, this function will be called
 	   * with another function (resizeNotifyer) as parameter
 	   * you can call resizeNotifyer to force re-measuring,
@@ -25773,7 +25802,8 @@
 	  className: _react.PropTypes.string
 	};
 	VideoCover.defaultProps = {
-	  forceFallback: false
+	  forceFallback: false,
+	  remeasureOnWindowResize: false
 	};
 	exports.default = VideoCover;
 
@@ -25803,21 +25833,21 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var CoverFallback = function (_Component) {
-	  _inherits(CoverFallback, _Component);
+	var VideoCoverFallback = function (_Component) {
+	  _inherits(VideoCoverFallback, _Component);
 
-	  function CoverFallback() {
+	  function VideoCoverFallback() {
 	    var _Object$getPrototypeO;
 
 	    var _temp, _this, _ret;
 
-	    _classCallCheck(this, CoverFallback);
+	    _classCallCheck(this, VideoCoverFallback);
 
 	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
 	      args[_key] = arguments[_key];
 	    }
 
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(CoverFallback)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(VideoCoverFallback)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
 	      innerRatio: undefined,
 	      outerRatio: undefined
 	    }, _this.updateContainerRatio = function () {
@@ -25833,16 +25863,39 @@
 	      _this.setState({
 	        innerRatio: width / height
 	      });
+	    }, _this.initEventListeners = function () {
+	      window.addEventListener('resize', _this.updateContainerRatio);
+	    }, _this.removeEventListeners = function () {
+	      window.removeEventListener('resize', _this.updateContainerRatio);
 	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 
-	  _createClass(CoverFallback, [{
+	  _createClass(VideoCoverFallback, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      this.updateContainerRatio();
 	      if (typeof this.props.getResizeNotifyer === 'function') {
 	        this.props.getResizeNotifyer(this.updateContainerRatio);
 	      }
+	      if (this.props.remeasureOnWindowResize) {
+	        this.initEventListeners();
+	      }
+	    }
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(nextProps) {
+	      if (nextProps.remeasureOnWindowResize !== this.props.remeasureOnWindowResize) {
+	        if (nextProps.remeasureOnWindowResize) {
+	          this.initEventListeners();
+	        } else {
+	          this.removeEventListeners();
+	        }
+	      }
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      this.removeEventListeners();
 	    }
 	  }, {
 	    key: 'render',
@@ -25888,15 +25941,17 @@
 	    }
 	  }]);
 
-	  return CoverFallback;
+	  return VideoCoverFallback;
 	}(_react.Component);
 
-	CoverFallback.propTypes = {
+	VideoCoverFallback.propTypes = {
 	  style: _react.PropTypes.object,
 	  getResizeNotifyer: _react.PropTypes.func,
-	  videoOptions: _react.PropTypes.object
+	  videoOptions: _react.PropTypes.object,
+	  forceFallback: _react.PropTypes.bool,
+	  remeasureOnWindowResize: _react.PropTypes.bool
 	};
-	exports.default = CoverFallback;
+	exports.default = VideoCoverFallback;
 
 /***/ },
 /* 233 */
@@ -25968,6 +26023,7 @@
 	        'div',
 	        { style: style },
 	        _react2.default.createElement(_VideoCover2.default, {
+	          forceFallback: true,
 	          videoOptions: videoOptions,
 	          getResizeNotifyer: function getResizeNotifyer(resizeNotifyer) {
 	            _this2.setState({
