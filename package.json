@@ -1,13 +1,16 @@
 {
-  "name": "rsldr",
+  "name": "react-video-cover",
   "version": "1.0.0",
   "private": true,
   "description": "",
   "scripts": {
-    "start": "node run.js",
+    "start": "./build_examples.js --watch",
+    "build-examples": "./build_examples.js",
+    "build": "babel lib --out-dir dist",
     "test": "karma start",
     "eslint": "eslint src",
-    "eslint-fix": "eslint --fix src"
+    "eslint-fix": "eslint --fix src",
+    "gh-pages": "git subtree push --prefix dist_examples origin gh-pages"
   },
   "author": "",
   "license": "ISC",
