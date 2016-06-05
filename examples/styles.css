@@ -21,3 +21,36 @@ body {
 .ResizableExample video {
 	cursor: pointer;
 }
+
+.NavBar {
+	background: silver;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 50px;
+	overflow: hidden;
+}
+
+.NavBar h1 {
+	margin: 0;
+	line-height: 50px;
+	display: inline-block;
+}
+.NavBar ul {
+	display: inline-block;
+	margin: 0;
+	vertical-align: top;
+}
+.NavBar li {
+	margin: 0;
+	line-height: 50px;
+	display: inline-block;
+}
+.NavBar li + li {
+	margin-left: 20px;
+}
+
+.App {
+	padding-top: 50px;
+}

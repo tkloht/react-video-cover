@@ -1,8 +1,8 @@
 import React from 'react';
 const { element } = React.PropTypes;
 
-import { IndexLink } from 'react-router';
-import Title from 'react-title-component';
+import NavBar from './NavBar';
+import css from './styles.css';
 
 const propTypes = {
   children: element,
@@ -10,15 +10,10 @@ const propTypes = {
 
 const App = props => (
   <div>
-    <div>
-      <Title render="Awesome App" />
-      <h1>Cover Example</h1>
-      <ul>
-        <li><IndexLink to="/example1">Example 1</IndexLink></li>
-        <li><IndexLink to="/example2">Example 2</IndexLink></li>
-      </ul>
+    <NavBar />
+    <div className={css.App}>
+      {props.children}
     </div>
-    {props.children}
   </div>
 );
 
