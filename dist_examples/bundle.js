@@ -25592,7 +25592,7 @@
 	      var _this2 = this;
 
 	      var videoOptions = {
-	        src: 'https://ia800502.us.archive.org/10/items/WebmVp8Vorbis/webmvp8.webm',
+	        src: 'http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4',
 	        ref: function ref(videoRef) {
 	          _this2.videoRef = videoRef;
 	        },
@@ -25746,7 +25746,7 @@
 	        width: '100%',
 	        height: '100%'
 	      });
-	      switch (this.props.forceFallback || /MSIE|Trident/.test(navigator.userAgent)) {
+	      switch (this.props.forceFallback || /MSIE|Trident|Edge/.test(navigator.userAgent)) {
 	        case true:
 	          return _react2.default.createElement(_VideoCoverFallback2.default, this.props);
 	        case false:
@@ -26014,7 +26014,7 @@
 	      var _this2 = this;
 
 	      var videoOptions = {
-	        src: 'https://ia800502.us.archive.org/10/items/WebmVp8Vorbis/webmvp8.webm',
+	        src: 'http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4',
 	        autoPlay: true,
 	        loop: true
 	      };
@@ -26024,6 +26024,7 @@
 	        { style: style },
 	        _react2.default.createElement(_VideoCover2.default, {
 	          videoOptions: videoOptions,
+	          remeasureOnWindowResize: true,
 	          getResizeNotifyer: function getResizeNotifyer(resizeNotifyer) {
 	            _this2.setState({
 	              resizeNotifyer: resizeNotifyer

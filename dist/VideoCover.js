@@ -52,7 +52,7 @@ var VideoCover = function (_Component) {
         width: '100%',
         height: '100%'
       });
-      switch (this.props.forceFallback || /MSIE|Trident/.test(navigator.userAgent)) {
+      switch (this.props.forceFallback || /MSIE|Trident|Edge/.test(navigator.userAgent)) {
         case true:
           return _react2.default.createElement(_VideoCoverFallback2.default, this.props);
         case false:
