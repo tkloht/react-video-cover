@@ -30,3 +30,6 @@ To build the Component as published to npm:
 npm run build
 ```
 You can find the results in `dist`.
+
+## License
+MIT
