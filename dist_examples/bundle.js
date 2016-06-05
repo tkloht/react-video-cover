@@ -26023,7 +26023,6 @@
 	        'div',
 	        { style: style },
 	        _react2.default.createElement(_VideoCover2.default, {
-	          forceFallback: true,
 	          videoOptions: videoOptions,
 	          getResizeNotifyer: function getResizeNotifyer(resizeNotifyer) {
 	            _this2.setState({
