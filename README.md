@@ -1,5 +1,5 @@
 # React Video Cover
-A small React component rendering a `<video/>` with `object-fit: cover`, or a Fallback in IE if object-fit is not available.
+A small React component rendering a `<video/>` with `object-fit: cover`, or a Fallback if object-fit is not available.
 
 ## Demo
 [http://t-obi.github.io/react-video-cover](http://t-obi.github.io/react-video-cover)
