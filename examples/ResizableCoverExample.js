@@ -15,6 +15,7 @@ class CoverExample extends Component {
   state = {
     resizeNotifyer: () => {},
     forceFallback: false,
+    remeasureOnWindowResize: false,
   };
 
   render() {
@@ -35,6 +36,18 @@ class CoverExample extends Component {
 
     return (
       <div className={css.ResizableExample}>
+        <div className={css.Input}>
+          <input
+            type="checkbox"
+            checked={this.state.remeasureOnWindowResize}
+            onClick={() => {
+              this.setState({
+                remeasureOnWindowResize: !this.state.remeasureOnWindowResize,
+              });
+            }}
+          />
+          <span>Remeasure on window resize</span>
+        </div>
         <div className={css.Input}>
           <input
             type="checkbox"
@@ -65,6 +78,7 @@ class CoverExample extends Component {
             <Cover
               videoOptions={videoOptions}
               forceFallback={this.state.forceFallback}
+              remeasureOnWindowResize={this.state.remeasureOnWindowResize}
               getResizeNotifyer={resizeNotifyer => {
                 this.setState({
                   resizeNotifyer,
