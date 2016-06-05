@@ -14,8 +14,8 @@ const App = props => (
       <Title render="Awesome App" />
       <h1>Cover Example</h1>
       <ul>
-        <li><IndexLink to="/react-video-cover/example1">Example 1</IndexLink></li>
-        <li><IndexLink to="/react-video-cover/example2">Example 2</IndexLink></li>
+        <li><IndexLink to="/example1">Example 1</IndexLink></li>
+        <li><IndexLink to="/example2">Example 2</IndexLink></li>
       </ul>
     </div>
     {props.children}

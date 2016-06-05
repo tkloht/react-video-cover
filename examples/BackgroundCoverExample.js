@@ -16,7 +16,7 @@ class CoverExample extends Component {
 
   render() {
     const videoOptions = {
-      src: 'http://ia800502.us.archive.org/10/items/WebmVp8Vorbis/webmvp8.webm',
+      src: 'https://ia800502.us.archive.org/10/items/WebmVp8Vorbis/webmvp8.webm',
       autoPlay: true,
       loop: true,
     };
