@@ -23,7 +23,7 @@
     "lib": "./lib",
     "example": "./examples"
   },
-  "main": "dist/VideoCover"
+  "main": "dist/VideoCover",
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0"
   },
