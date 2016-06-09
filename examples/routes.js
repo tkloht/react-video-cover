@@ -3,15 +3,17 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import App from './App';
 import NoMatch from './NoMatch';
-import CoverExample1 from './ResizableCoverExample';
-import CoverExample2 from './BackgroundCoverExample';
+import MinimalExample from './MinimalExample';
+import ResizableExample from './ResizableCoverExample';
+import BackgroundExample from './BackgroundCoverExample';
 
 export default (
   <Route>
     <Route path="/" component={App}>
-      <IndexRoute component={CoverExample1} />
-      <Route path="example1" component={CoverExample1} />
-      <Route path="example2" component={CoverExample2} />
+      <IndexRoute component={ResizableExample} />
+      <Route path="resizable" component={ResizableExample} />
+      <Route path="background" component={BackgroundExample} />
+      <Route path="minimal" component={MinimalExample} />
     </Route>
     <Route path="*" status={404} component={NoMatch} />
   </Route>
