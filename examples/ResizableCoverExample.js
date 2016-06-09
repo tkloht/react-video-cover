@@ -67,6 +67,12 @@ class CoverExample extends Component {
             Without the IE Fallback this is not necessary and will do nothing.
           </span>
         </div>
+        <div>
+          The box below should be resizable on the bottom right corner.
+          However, this does not work in IE unfortunately.
+          If you are looking at this page in IE I you could check out the second example,
+          which allows you to see the same effect by resizing your browser window.
+        </div>
         <div style={style} >
           <div
             style={{
