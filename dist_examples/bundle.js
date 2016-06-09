@@ -65,7 +65,7 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _history = __webpack_require__(234);
+	var _history = __webpack_require__(235);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25014,11 +25014,15 @@
 
 	var _NoMatch2 = _interopRequireDefault(_NoMatch);
 
-	var _ResizableCoverExample = __webpack_require__(230);
+	var _MinimalExample = __webpack_require__(230);
+
+	var _MinimalExample2 = _interopRequireDefault(_MinimalExample);
+
+	var _ResizableCoverExample = __webpack_require__(233);
 
 	var _ResizableCoverExample2 = _interopRequireDefault(_ResizableCoverExample);
 
-	var _BackgroundCoverExample = __webpack_require__(233);
+	var _BackgroundCoverExample = __webpack_require__(234);
 
 	var _BackgroundCoverExample2 = _interopRequireDefault(_BackgroundCoverExample);
 
@@ -25031,8 +25035,9 @@
 	    _reactRouter.Route,
 	    { path: '/', component: _App2.default },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _ResizableCoverExample2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: 'example1', component: _ResizableCoverExample2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: 'example2', component: _BackgroundCoverExample2.default })
+	    _react2.default.createElement(_reactRouter.Route, { path: 'resizable', component: _ResizableCoverExample2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'background', component: _BackgroundCoverExample2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'minimal', component: _MinimalExample2.default })
 	  ),
 	  _react2.default.createElement(_reactRouter.Route, { path: '*', status: 404, component: _NoMatch2.default })
 	);
@@ -25479,7 +25484,7 @@
 	        null,
 	        _react2.default.createElement(
 	          _reactRouter.IndexLink,
-	          { to: '/example1' },
+	          { to: '/resizable' },
 	          'Example 1'
 	        )
 	      ),
@@ -25488,8 +25493,17 @@
 	        null,
 	        _react2.default.createElement(
 	          _reactRouter.IndexLink,
-	          { to: '/example2' },
+	          { to: '/background' },
 	          'Example 2'
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'li',
+	        null,
+	        _react2.default.createElement(
+	          _reactRouter.IndexLink,
+	          { to: '/minimal' },
+	          'Example 3'
 	        )
 	      )
 	    )
@@ -25544,10 +25558,6 @@
 
 	var _VideoCover2 = _interopRequireDefault(_VideoCover);
 
-	var _styles = __webpack_require__(223);
-
-	var _styles2 = _interopRequireDefault(_styles);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25556,37 +25566,16 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var style = {
-	  width: 100,
-	  height: 100,
-	  background: 'teal',
-	  padding: 10,
-	  resize: 'both',
-	  overflow: 'hidden'
-	};
+	var MinimalCoverExample = function (_Component) {
+	  _inherits(MinimalCoverExample, _Component);
 
-	var CoverExample = function (_Component) {
-	  _inherits(CoverExample, _Component);
+	  function MinimalCoverExample() {
+	    _classCallCheck(this, MinimalCoverExample);
 
-	  function CoverExample() {
-	    var _Object$getPrototypeO;
-
-	    var _temp, _this, _ret;
-
-	    _classCallCheck(this, CoverExample);
-
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(CoverExample)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
-	      resizeNotifyer: function resizeNotifyer() {},
-	      forceFallback: false,
-	      remeasureOnWindowResize: false
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(MinimalCoverExample).apply(this, arguments));
 	  }
 
-	  _createClass(CoverExample, [{
+	  _createClass(MinimalCoverExample, [{
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
@@ -25605,88 +25594,24 @@
 	        },
 	        title: 'click to play/pause'
 	      };
-
 	      return _react2.default.createElement(
 	        'div',
-	        { className: _styles2.default.ResizableExample },
-	        _react2.default.createElement(
-	          'div',
-	          { className: _styles2.default.Input },
-	          _react2.default.createElement('input', {
-	            type: 'checkbox',
-	            checked: this.state.remeasureOnWindowResize,
-	            onClick: function onClick() {
-	              _this2.setState({
-	                remeasureOnWindowResize: !_this2.state.remeasureOnWindowResize
-	              });
-	            }
-	          }),
-	          _react2.default.createElement(
-	            'span',
-	            null,
-	            'Remeasure on window resize'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: _styles2.default.Input },
-	          _react2.default.createElement('input', {
-	            type: 'checkbox',
-	            checked: this.state.forceFallback,
-	            onClick: function onClick() {
-	              _this2.setState({
-	                forceFallback: !_this2.state.forceFallback
-	              });
-	            }
-	          }),
-	          _react2.default.createElement(
-	            'span',
-	            null,
-	            'Force IE-Fallback in non-IE Browsers'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: _styles2.default.Input },
-	          _react2.default.createElement('input', { type: 'button', value: 'resize', onClick: this.state.resizeNotifyer }),
-	          _react2.default.createElement(
-	            'span',
-	            null,
-	            'When using the IE-Fallback click this button to notify that a resize has happened. Without the IE Fallback this is not necessary and will do nothing.'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { style: style },
-	          _react2.default.createElement(
-	            'div',
-	            {
-	              style: {
-	                overflow: 'hidden',
-	                width: '100%',
-	                height: '100%'
-	              }
-	            },
-	            _react2.default.createElement(_VideoCover2.default, {
-	              videoOptions: videoOptions,
-	              forceFallback: this.state.forceFallback,
-	              remeasureOnWindowResize: this.state.remeasureOnWindowResize,
-	              getResizeNotifyer: function getResizeNotifyer(resizeNotifyer) {
-	                _this2.setState({
-	                  resizeNotifyer: resizeNotifyer
-	                });
-	              }
-	            })
-	          )
-	        )
+	        { style: {
+	            width: '300px',
+	            height: '300px',
+	            overflow: 'hidden'
+	          } },
+	        _react2.default.createElement(_VideoCover2.default, {
+	          videoOptions: videoOptions
+	        })
 	      );
 	    }
 	  }]);
 
-	  return CoverExample;
+	  return MinimalCoverExample;
 	}(_react.Component);
 
-	exports.default = CoverExample;
+	exports.default = MinimalCoverExample;
 
 /***/ },
 /* 231 */
@@ -25741,10 +25666,11 @@
 	  _createClass(VideoCover, [{
 	    key: 'render',
 	    value: function render() {
-	      var style = _extends({}, this.props.style, {
-	        objectFit: 'cover',
+	      var style = _extends({
 	        width: '100%',
 	        height: '100%'
+	      }, this.props.style, {
+	        objectFit: 'cover'
 	      });
 	      switch (this.props.forceFallback || /MSIE|Trident|Edge/.test(navigator.userAgent)) {
 	        case true:
@@ -25752,6 +25678,7 @@
 	        case false:
 	        default:
 	          return _react2.default.createElement('video', _extends({
+	            className: this.props.className,
 	            style: style
 	          }, this.props.videoOptions));
 	      }
@@ -25973,6 +25900,175 @@
 
 	var _VideoCover2 = _interopRequireDefault(_VideoCover);
 
+	var _styles = __webpack_require__(223);
+
+	var _styles2 = _interopRequireDefault(_styles);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var style = {
+	  width: 100,
+	  height: 100,
+	  background: 'teal',
+	  padding: 10,
+	  resize: 'both',
+	  overflow: 'hidden'
+	};
+
+	var CoverExample = function (_Component) {
+	  _inherits(CoverExample, _Component);
+
+	  function CoverExample() {
+	    var _Object$getPrototypeO;
+
+	    var _temp, _this, _ret;
+
+	    _classCallCheck(this, CoverExample);
+
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(CoverExample)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
+	      resizeNotifyer: function resizeNotifyer() {},
+	      forceFallback: false,
+	      remeasureOnWindowResize: false
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	  }
+
+	  _createClass(CoverExample, [{
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+
+	      var videoOptions = {
+	        src: 'http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4',
+	        ref: function ref(videoRef) {
+	          _this2.videoRef = videoRef;
+	        },
+	        onClick: function onClick() {
+	          if (_this2.videoRef && _this2.videoRef.paused) {
+	            _this2.videoRef.play();
+	          } else if (_this2.videoRef) {
+	            _this2.videoRef.pause();
+	          }
+	        },
+	        title: 'click to play/pause'
+	      };
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: _styles2.default.ResizableExample },
+	        _react2.default.createElement(
+	          'div',
+	          { className: _styles2.default.Input },
+	          _react2.default.createElement('input', {
+	            type: 'checkbox',
+	            checked: this.state.remeasureOnWindowResize,
+	            onClick: function onClick() {
+	              _this2.setState({
+	                remeasureOnWindowResize: !_this2.state.remeasureOnWindowResize
+	              });
+	            }
+	          }),
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            'Remeasure on window resize'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: _styles2.default.Input },
+	          _react2.default.createElement('input', {
+	            type: 'checkbox',
+	            checked: this.state.forceFallback,
+	            onClick: function onClick() {
+	              _this2.setState({
+	                forceFallback: !_this2.state.forceFallback
+	              });
+	            }
+	          }),
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            'Force IE-Fallback in non-IE Browsers'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: _styles2.default.Input },
+	          _react2.default.createElement('input', { type: 'button', value: 'resize', onClick: this.state.resizeNotifyer }),
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            'When using the IE-Fallback click this button to notify that a resize has happened. Without the IE Fallback this is not necessary and will do nothing.'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          'The box below should be resizable on the bottom right corner. However, this does not work in IE unfortunately. If you are looking at this page in IE I you could check out the second example, which allows you to see the same effect by resizing your browser window.'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { style: style },
+	          _react2.default.createElement(
+	            'div',
+	            {
+	              style: {
+	                overflow: 'hidden',
+	                width: '100%',
+	                height: '100%'
+	              }
+	            },
+	            _react2.default.createElement(_VideoCover2.default, {
+	              videoOptions: videoOptions,
+	              forceFallback: this.state.forceFallback,
+	              remeasureOnWindowResize: this.state.remeasureOnWindowResize,
+	              getResizeNotifyer: function getResizeNotifyer(resizeNotifyer) {
+	                _this2.setState({
+	                  resizeNotifyer: resizeNotifyer
+	                });
+	              }
+	            })
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return CoverExample;
+	}(_react.Component);
+
+	exports.default = CoverExample;
+
+/***/ },
+/* 234 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _VideoCover = __webpack_require__(231);
+
+	var _VideoCover2 = _interopRequireDefault(_VideoCover);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26041,7 +26137,7 @@
 	exports.default = CoverExample;
 
 /***/ },
-/* 234 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26082,7 +26178,7 @@
 
 	exports.useBasename = _useBasename3['default'];
 
-	var _useBeforeUnload2 = __webpack_require__(235);
+	var _useBeforeUnload2 = __webpack_require__(236);
 
 	var _useBeforeUnload3 = _interopRequireDefault(_useBeforeUnload2);
 
@@ -26102,13 +26198,13 @@
 
 	// deprecated
 
-	var _enableBeforeUnload2 = __webpack_require__(236);
+	var _enableBeforeUnload2 = __webpack_require__(237);
 
 	var _enableBeforeUnload3 = _interopRequireDefault(_enableBeforeUnload2);
 
 	exports.enableBeforeUnload = _enableBeforeUnload3['default'];
 
-	var _enableQueries2 = __webpack_require__(237);
+	var _enableQueries2 = __webpack_require__(238);
 
 	var _enableQueries3 = _interopRequireDefault(_enableQueries2);
 
@@ -26117,7 +26213,7 @@
 	exports.createLocation = createLocation;
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26233,7 +26329,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26246,7 +26342,7 @@
 
 	var _deprecate2 = _interopRequireDefault(_deprecate);
 
-	var _useBeforeUnload = __webpack_require__(235);
+	var _useBeforeUnload = __webpack_require__(236);
 
 	var _useBeforeUnload2 = _interopRequireDefault(_useBeforeUnload);
 
@@ -26254,7 +26350,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
