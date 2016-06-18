@@ -6,6 +6,7 @@ const ROOT_PATH = path.resolve(__dirname);
 const SRC_PATH = path.resolve(ROOT_PATH, 'src');
 const EXAMPLES_PATH = path.resolve(ROOT_PATH, 'examples');
 const LIB_PATH = path.resolve(ROOT_PATH, 'lib');
+const TESTS_PATH = path.resolve(ROOT_PATH, 'tests');
 
 const CONFIG_DEV = {
   resolve: {
@@ -28,7 +29,7 @@ const CONFIG_DEV = {
       {
         test: /\.jsx?$/,
         loader: 'babel',
-        include: [EXAMPLES_PATH, LIB_PATH],
+        include: [EXAMPLES_PATH, LIB_PATH, TESTS_PATH],
         query: {
           presets: ['stage-0', 'es2015', 'react'],
           plugins: [
