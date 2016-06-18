@@ -17,7 +17,7 @@ function webpackServer(compiler) {
     publicPath: webpackConfigExamplesDev.output.publicPath,
     hot: true,
     inline: true,
-    historyApiFallback: true,
+    historyApiFallback: false,
   }).listen(3000, 'localhost', err => {
     if (err) {
       return console.warn(err);

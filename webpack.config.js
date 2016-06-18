@@ -55,7 +55,7 @@ const CONFIG_DEV = {
   },
   output: {
     path: path.resolve(__dirname, 'dist_examples'),
-    publicPath: '/react-video-cover',
+    publicPath: '/',
     filename: 'bundle.js',
   },
   plugins: [
