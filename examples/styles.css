@@ -30,6 +30,8 @@ body {
 	right: 0;
 	height: 50px;
 	overflow: hidden;
+	display: flex;
+	padding: 0 10px;
 }
 
 .NavBar h1 {
@@ -51,6 +53,14 @@ body {
 	margin-left: 20px;
 }
 
+.NavBar .ExternalNav {
+	margin: auto 0 auto auto;
+}
+
+.NavBar img {
+	width: 32px;
+	height: 32px;
+}
 .App {
 	padding-top: 50px;
 }

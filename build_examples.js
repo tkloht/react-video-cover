@@ -13,7 +13,7 @@ const webpackConfigExamplesDist = require('./webpack.config.examples_dist');
 
 function webpackServer(compiler) {
   new WebpackDevServer(compiler, {
-    contentBase: path.resolve(__dirname, 'build'),
+    contentBase: path.resolve(__dirname, 'dist_examples'),
     publicPath: webpackConfigExamplesDev.output.publicPath,
     hot: true,
     inline: true,
