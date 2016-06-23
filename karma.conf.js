@@ -1,11 +1,10 @@
-const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
 webpackConfig.externals = {};
 webpackConfig.externals['react/lib/ExecutionEnvironment'] = true;
 webpackConfig.externals['react/lib/ReactContext'] = true;
 webpackConfig.externals['react/addons'] = true;
 
-module.exports = function (config) {
+module.exports = function configure(config) {
   config.set({
     browsers: ['PhantomJS'],
     frameworks: ['mocha'],
