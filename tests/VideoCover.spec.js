@@ -28,6 +28,43 @@ describe('VideoCover', () => {
     expect(wrapper).to.have.descendants(VideoCoverFallback);
   });
 
+  describe('styles without fallback', () => {
+    it('should have width and height 100% by default', () => {
+      const wrapper = shallow(<VideoCover />);
+      expect(wrapper).to.have.style('height', '100%');
+      expect(wrapper).to.have.style('width', '100%');
+    });
+    it('should have any additional styles passed in via style-prop', () => {
+      const wrapper = shallow(<VideoCover />);
+      expect(wrapper).to.not.have.style('background-color');
+      expect(wrapper).to.not.have.style('color');
+      expect(wrapper).to.not.have.style('line-height');
+      wrapper.setProps({
+        style: {
+          backgroundColor: 'red',
+          color: 'teal',
+          lineHeight: 10,
+        },
+      });
+      expect(wrapper).to.have.style('background-color', 'red');
+      expect(wrapper).to.have.style('color', 'teal');
+      expect(wrapper).to.have.style('line-height', '10');
+    });
+    it('should be possible to override width and height props', () => {
+      const wrapper = shallow(<VideoCover style={{ width: '50%', height: '50%' }} />);
+      expect(wrapper).to.have.style('height', '50%');
+      expect(wrapper).to.have.style('width', '50%');
+    });
+    it('should have object-fit set to cover', () => {
+      const wrapper = shallow(<VideoCover />);
+      expect(wrapper).to.have.style('object-fit', 'cover');
+    });
+    it('should not be possible to override object-fit', () => {
+      const wrapper = shallow(<VideoCover style={{ objectFit: 'contain' }} />);
+      expect(wrapper).to.have.style('object-fit', 'cover');
+    });
+  });
+
   describe('UserAgent', () => {
     /* eslint-disable max-len */
     const originalNavigator = window.navigator;
