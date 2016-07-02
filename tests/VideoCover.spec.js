@@ -18,9 +18,21 @@ function setUserAgent(userAgent) {
 }
 
 describe('VideoCover', () => {
-  it('should just render for now', () => {
+  it('should render a video tag', () => {
     const wrapper = shallow(<VideoCover />);
     expect(wrapper).to.have.descendants('video');
+  });
+
+  it('should not render Fallback component by default', () => {
+    const wrapper = shallow(<VideoCover />);
+    expect(wrapper).not.to.have.descendants(VideoCoverFallback);
+  });
+
+  it('should set classname of <video/> according prop', () => {
+    const className = 'WhateverClassNameYouWant EvenMultipleClassNames';
+    const wrapper = shallow(<VideoCover className={className} />);
+    expect(wrapper).to.have.className('WhateverClassNameYouWant');
+    expect(wrapper).to.have.className('EvenMultipleClassNames');
   });
 
   it('should render Fallback component if forceFallback prop is set', () => {
