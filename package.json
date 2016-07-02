@@ -10,8 +10,8 @@
     "build-examples": "./build_examples.js",
     "build": "babel lib --out-dir dist",
     "test": "karma start --single-run",
-    "eslint": "eslint src",
-    "eslint-fix": "eslint --fix src",
+    "eslint": "eslint lib examples",
+    "eslint-fix": "eslint --fix lib examples",
     "gh-pages": "git subtree push --prefix dist_examples origin gh-pages"
   },
   "author": "Tobias Kloht",
