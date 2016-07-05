@@ -11,7 +11,7 @@ const style = {
 class CoverExample extends Component {
 
   state = {
-    resizeNotifyer: () => {},
+    resizeNotifier: () => {},
   }
 
   render() {
@@ -26,9 +26,9 @@ class CoverExample extends Component {
         <Cover
           videoOptions={videoOptions}
           remeasureOnWindowResize
-          getResizeNotifyer={resizeNotifyer => {
+          getResizeNotifier={resizeNotifier => {
             this.setState({
-              resizeNotifyer,
+              resizeNotifier,
             });
           }}
         />

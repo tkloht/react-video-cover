@@ -17,7 +17,7 @@ class CoverExample extends Component {
     remeasureOnWindowResize: false,
   };
 
-  resizeNotifyer = () => {};
+  resizeNotifier = () => {};
 
   render() {
     const videoOptions = {
@@ -62,7 +62,7 @@ class CoverExample extends Component {
           <span>Force IE-Fallback in non-IE Browsers</span>
         </div>
         <div className={css.Input}>
-          <input type="button" value="resize" onClick={this.resizeNotifyer} />
+          <input type="button" value="resize" onClick={this.resizeNotifier} />
           <span>
             When using the IE-Fallback click this button to notify that a resize has happened.
             Without the IE Fallback this is not necessary and will do nothing.
@@ -86,11 +86,11 @@ class CoverExample extends Component {
               videoOptions={videoOptions}
               forceFallback={this.state.forceFallback}
               remeasureOnWindowResize={this.state.remeasureOnWindowResize}
-              onFallbackMounted={resizeNotifyer => {
-                this.resizeNotifyer = resizeNotifyer;
+              onFallbackMounted={resizeNotifier => {
+                this.resizeNotifier = resizeNotifier;
               }}
               onFallbackUnmounted={() => {
-                this.resizeNotifyer = () => {};
+                this.resizeNotifier = () => {};
               }}
             />
           </div>

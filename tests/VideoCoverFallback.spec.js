@@ -29,13 +29,13 @@ describe('VideoCoverFallback', () => {
   });
 
   it('should pass this.updateContainerRatio as parameter in onFallbackWillUnmount', () => {
-    let resizeNotifyer;
+    let resizeNotifier;
     const wrapper = mount(<VideoCoverFallback
       onFallbackDidMount={result => {
-        resizeNotifyer = result;
+        resizeNotifier = result;
       }}
     />);
-    expect(resizeNotifyer).to.equal(wrapper.instance().updateContainerRatio);
+    expect(resizeNotifier).to.equal(wrapper.instance().updateContainerRatio);
   });
 
   it('should initialize window-resize eventlisteners if props.remeasureOnWindowResize is set', () => {
