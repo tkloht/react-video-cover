@@ -96,7 +96,7 @@ It is also available as Example 3 on the demo-page.
 ### videoOptions
 **type:** Object  
 **default:** `undefined`  
-All members of videoOptions will be passed as props to the video-tag.
+All members of videoOptions will be passed as props to the <video/>.
 
 ### style
 **type:** Object  
