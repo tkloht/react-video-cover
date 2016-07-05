@@ -91,6 +91,57 @@ class MinimalCoverExample extends Component {
 ```
 It is also available as Example 3 on the demo-page.
 
+## Props
+
+### videoOptions
+**type:** Object  
+**default:** `undefined`  
+All members of videoOptions will be passed as props to the video-tag.
+
+### style
+**type:** Object  
+**default:**  `undefined`  
+
+Additional styles which will be merged with those defined by this component.
+Please note that some styles are not possible to override, in particular:
+  - object-fit: cover (when the fallback is not used)
+  - position: relative and overflow: hidden (when the fallback is used)
+
+### className
+**type:** String  
+**default:**  `undefined`  
+Use this to set a custom className.
+
+### forceFallback
+**type:** Boolean  
+**default:**  `false`  
+This component will use object-fit: cover if available, that is in all modern browsers except IE.
+This prop forces use of the fallback. This is helpful during troubleshooting,
+but apart from that you should not use it.
+ 
+### remeasureOnWindowResize
+**type:** Boolean  
+**default:**  `false`  
+If set, an event listener on window-resize is added when the Fallback is used.
+It will re-evaluate the aspect-ratio and update the styles if necessary.
+This has no effect if the fallback is not used.
+The classic example where it makes sense to use this is when using a background video.
+If you need to react to different events to re-measure the aspect-ratio please see the onFallbackDidMount prop.
+
+### onFallbackDidMount
+**type:** Function  
+**default:**  `undefined`  
+Will be executed when the Fallback is mounted.
+The only parameter is a function, which can be used to force a re-measuring, for example after the size of the surrounding container has changed.
+Please note that this will only be invoked if the fallback is used, that is in IE.
+See ResizableCoverExample for an example implementation.
+ 
+### onFallbackWillUnmount
+**type:** Function  
+**default:**  `undefined`  
+Will be executed before the Fallback unmounts.
+You probably want to use this to clear any event-listeners added in onFallbackDidMount.
+
 
 ## Development
 To start a webpack-dev-server with the examples:
@@ -110,6 +161,12 @@ To build the Component as published to npm:
 npm run build
 ```
 You can find the results in `dist`.
+
+## Contact
+Find me on [Twitter](https://twitter.com/tkloht) or write me an [email](mailto:tobias.kloht@gmail.com).
+Of course you can also use Github issues or open a pull request.
+
+Honestly, it would be really great to know if anyone actually uses my little component. I'm also happy to help if you run into any problems.
 
 ## License
 MIT
