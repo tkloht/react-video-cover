@@ -18,11 +18,13 @@ class MinimalCoverExample extends Component {
       title: 'click to play/pause',
     };
     return (
-      <div style={{
-        width: '300px',
-        height: '300px',
-        overflow: 'hidden',
-      }}>
+      <div
+        style={{
+          width: '300px',
+          height: '300px',
+          overflow: 'hidden',
+        }}
+      >
         <VideoCover
           videoOptions={videoOptions}
         />
