@@ -5,62 +5,68 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
+import sinonChai from 'sinon-chai';
+import dirtyChai from 'dirty-chai';
+chai.use(sinonChai);
+chai.use(dirtyChai);
 chai.use(chaiEnzyme());
 import sinon from 'sinon';
 
-describe('VideoCoverFallback', function () {
-  it('should update container ratio when mounted', function () {
+describe('VideoCoverFallback', () => {
+  it('should update container ratio when mounted', () => {
     const spy = sinon.spy();
     class WithSpy extends VideoCoverFallback {
       updateContainerRatio = spy;
     }
-    const wrapper = mount(<WithSpy />);
-    expect(spy.calledOnce).to.be.true;
+    mount(<WithSpy />);
+    expect(spy).to.have.been.calledOnce();
   });
 
-  it('should call getResizeNotifier prop when mounted', function () {
+  it('should call onFallbackDidMount prop when mounted', () => {
     const spy = sinon.spy();
-    const wrapper = mount(<VideoCoverFallback getResizeNotifyer={spy} />)
-    expect(spy.calledOnce).to.be.true;
+    mount(<VideoCoverFallback onFallbackDidMount={spy} />);
+    expect(spy).to.have.been.calledOnce();
   });
 
-  it('should pass this.updateContainerRatio as parameter in getResizeNotifier', function () {
+  it('should pass this.updateContainerRatio as parameter in onFallbackWillUnmount', () => {
     let resizeNotifyer;
-    const wrapper = mount(<VideoCoverFallback getResizeNotifyer={result => {
-      resizeNotifyer = result;
-    }} />)
+    const wrapper = mount(<VideoCoverFallback
+      onFallbackDidMount={result => {
+        resizeNotifyer = result;
+      }}
+    />);
     expect(resizeNotifyer).to.equal(wrapper.instance().updateContainerRatio);
   });
 
-  it('should initialize window-resize eventlisteners if props.remeasureOnWindowResize is set', function () {
+  it('should initialize window-resize eventlisteners if props.remeasureOnWindowResize is set', () => {
     const spy = sinon.spy();
     class WithSpy extends VideoCoverFallback {
       initEventListeners = spy;
     }
-    const wrapper = mount(<WithSpy remeasureOnWindowResize />);
-    expect(spy.calledOnce).to.be.true;
+    mount(<WithSpy remeasureOnWindowResize />);
+    expect(spy).to.have.been.calledOnce();
   });
 
-  it('should NOT initialize window-resize eventlisteners if props.remeasureOnWindowResize is not set', function () {
+  it('should NOT initialize window-resize eventlisteners if props.remeasureOnWindowResize is not set', () => {
     const spy = sinon.spy();
     class WithSpy extends VideoCoverFallback {
       initEventListeners = spy;
     }
-    const wrapper = mount(<WithSpy />);
-    expect(spy.calledOnce).to.be.false;
+    mount(<WithSpy />);
+    expect(spy).not.to.have.been.called();
   });
 
-  it('should remove eventlisteners before unmount', function () {
+  it('should remove eventlisteners before unmount', () => {
     const spy = sinon.spy();
     class WithSpy extends VideoCoverFallback {
       removeEventListeners = spy;
     }
     const wrapper = mount(<WithSpy />);
     wrapper.unmount();
-    expect(spy.calledOnce).to.be.true;
+    expect(spy).to.have.been.calledOnce();
   });
 
-  it('should add/remove eventlisteners if props.remeasureOnWindowResize changes', function () {
+  it('should add/remove eventlisteners if props.remeasureOnWindowResize changes', () => {
     const addSpy = sinon.spy();
     const removeSpy = sinon.spy();
     class WithSpy extends VideoCoverFallback {
@@ -68,91 +74,98 @@ describe('VideoCoverFallback', function () {
       removeEventListeners = removeSpy;
     }
     const wrapper = mount(<WithSpy />);
-    expect(addSpy.called).to.be.false;
-    expect(removeSpy.called).to.be.false;
-    wrapper.setProps({remeasureOnWindowResize: true});
-    expect(addSpy.calledOnce).to.be.true;
-    expect(removeSpy.called).to.be.false;
-    wrapper.setProps({remeasureOnWindowResize: false});
-    expect(addSpy.calledOnce).to.be.true;
-    expect(removeSpy.calledOnce).to.be.true;
-  }) 
+    expect(addSpy).not.to.have.been.called();
+    expect(removeSpy).not.to.have.been.called();
+    wrapper.setProps({ remeasureOnWindowResize: true });
+    expect(addSpy).to.have.been.calledOnce();
+    expect(removeSpy).not.to.have.been.called();
+    wrapper.setProps({ remeasureOnWindowResize: false });
+    expect(addSpy).to.have.been.calledOnce();
+    expect(removeSpy).to.have.been.calledOnce();
+  });
 
-  it('should render a video tag inside a container-div', function() {
+  it('should render a video tag inside a container-div', () => {
     const wrapper = shallow(<VideoCoverFallback />);
     expect(wrapper).to.have.descendants('div');
     expect(wrapper.find('div')).to.have.descendants('video');
   });
 
-  it('should pass props.className to the container-div', function() {
-    const wrapper = shallow(<VideoCoverFallback className='some-classname' />);
+  it('should pass props.className to the container-div', () => {
+    const wrapper = shallow(<VideoCoverFallback className="some-classname" />);
     expect(wrapper).to.have.className('some-classname');
-  })
+  });
 
-  it('should invoke updateVideoRatio on loadedData media event', function () {
+  it('should invoke updateVideoRatio on loadedData media event', () => {
     const spy = sinon.spy();
     class WithSpy extends VideoCoverFallback {
       updateVideoRatio = spy;
     }
     const wrapper = shallow(<WithSpy />);
     const video = wrapper.find('video');
-    video.simulate('loadedData', {target: {
-      videoWidth: 50,
-      videoHeight: 50,
-    }});
-    expect(spy.calledOnce).to.be.true;
-    expect(spy.calledWith(50, 50)).to.be.true;
+    video.simulate('loadedData', {
+      target: {
+        videoWidth: 50,
+        videoHeight: 50,
+      },
+    });
+    expect(spy).to.have.been.calledOnce();
+    expect(spy.calledWith(50, 50)).to.be.true();
   });
 
-  it('should apply all props.videoOptions to the video tag', function () {
-    const wrapper = shallow(<VideoCoverFallback videoOptions={{
-      src: 'http://some-video-url.mp4',
-    }} />);
+  it('should apply all props.videoOptions to the video tag', () => {
+    const wrapper = shallow(<VideoCoverFallback
+      videoOptions={{
+        src: 'http://some-video-url.mp4',
+      }}
+    />);
     expect(wrapper.find('video')).to.have.prop('src', 'http://some-video-url.mp4');
   });
 
-  describe('container-styles', function () {
-
-    it('should apply props.style to the container-div', function() {
-      const wrapper = shallow(<VideoCoverFallback style={{
-        backgroundColor: 'teal',
-        lineHeight: '100px',
-      }} />);
+  describe('container-styles', () => {
+    it('should apply props.style to the container-div', () => {
+      const wrapper = shallow(<VideoCoverFallback
+        style={{
+          backgroundColor: 'teal',
+          lineHeight: '100px',
+        }}
+      />);
       expect(wrapper).to.have.style('background-color', 'teal');
       expect(wrapper).to.have.style('line-height', '100px');
     });
-    
-    it('should set width and height to 100% by default', function () {
+
+    it('should set width and height to 100% by default', () => {
       const wrapper = shallow(<VideoCoverFallback />);
       expect(wrapper).to.have.style('height', '100%');
       expect(wrapper).to.have.style('width', '100%');
     });
 
-    it('should be possible to override width and height via props.style', function (){
+    it('should be possible to override width and height via props.style', () => {
       const wrapper = shallow(<VideoCoverFallback style={{ width: '50%', height: '50%' }} />);
       expect(wrapper).to.have.style('height', '50%');
       expect(wrapper).to.have.style('width', '50%');
     });
 
-    it('should set position relative and overflow: hidden', function (){
+    it('should set position relative and overflow: hidden', () => {
       const wrapper = shallow(<VideoCoverFallback />);
       expect(wrapper).to.have.style('position', 'relative');
       expect(wrapper).to.have.style('overflow', 'hidden');
     });
 
-    it('should not be possible to override position and overflow', function () {
-      const wrapper = shallow(<VideoCoverFallback style={{
-        position: 'fixed',
-        overflow: 'scroll',
-      }} />);
+    it('should not be possible to override position and overflow', () => {
+      const wrapper = shallow(<VideoCoverFallback
+        style={{
+          position: 'fixed',
+          overflow: 'scroll',
+        }}
+      />);
       expect(wrapper).to.have.style('position', 'relative');
       expect(wrapper).to.have.style('overflow', 'hidden');
     });
   });
 
   // todo: maybe use generated test-data for this?
-  describe('video-styles', function () {
-    it('should have width auto, height 100% if innerRatio > outerRatio', function () {
+  describe('video-styles', () => {
+    it('should have width auto, height 100% if innerRatio > outerRatio', () => {
       const wrapper = shallow(<VideoCoverFallback />);
       wrapper.setState({
         innerRatio: 5,
@@ -161,7 +174,7 @@ describe('VideoCoverFallback', function () {
       expect(wrapper.find('video')).to.have.style('width', 'auto');
       expect(wrapper.find('video')).to.have.style('height', '100%');
     });
-    it('should have width 100%, height auto if innerRatio <= outerRatio', function () {
+    it('should have width 100%, height auto if innerRatio <= outerRatio', () => {
       const wrapper = shallow(<VideoCoverFallback />);
       wrapper.setState({
         innerRatio: 3,
@@ -172,28 +185,29 @@ describe('VideoCoverFallback', function () {
     });
   });
 
-  describe('updateContainerRatio()', function () {
-    it('should set state.outerRatio to ratio of container width/height', function () {
+  describe('updateContainerRatio()', () => {
+    it('should set state.outerRatio to ratio of container width/height', () => {
       const wrapper = shallow(<VideoCoverFallback />);
-      const mockRef = { 
+      const mockRef = {
         getBoundingClientRect: () => {
-          return {
+          const result = {
             width: 4,
-            height: 5
-          }
-        }
+            height: 5,
+          };
+          return result;
+        },
       };
       wrapper.instance().updateContainerRatio(mockRef);
-      expect(wrapper).to.have.state('outerRatio', 4/5);
+      expect(wrapper).to.have.state('outerRatio', 4 / 5);
     });
   });
 
-  describe('updateVideoRatio()', function () {
-    it('should set state.innerRatio to ratio of video width/height', function () {
+  describe('updateVideoRatio()', () => {
+    it('should set state.innerRatio to ratio of video width/height', () => {
       const wrapper = shallow(<VideoCoverFallback />);
       expect(wrapper).not.to.have.state('innerRatio');
       wrapper.instance().updateVideoRatio(4, 5);
-      expect(wrapper).to.have.state('innerRatio', 4/5);
+      expect(wrapper).to.have.state('innerRatio', 4 / 5);
     });
   });
-}); 
+});
