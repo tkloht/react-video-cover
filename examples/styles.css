@@ -57,7 +57,13 @@ body {
 	margin: auto 0 auto auto;
 }
 
-.NavBar img {
+.ExternalNav img:hover {
+	-webkit-filter: brightness(4);
+	filter: brightness(2.5);
+	transition: all 0.3s;
+}
+
+.ExternalNav img {
 	width: 32px;
 	height: 32px;
 }
