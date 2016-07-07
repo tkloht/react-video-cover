@@ -28,7 +28,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * this component is a simple wrapper around <video/> that displays the video filling
  * the container, while preserving it's aspect ratio
  * this is analogous to background-size: cover for background images
- * this is very easy to achieve with the css property object-fit: cover
+ * and very easy to achieve with the css property object-fit: cover
  * unfortunately object-fit is not implemented in IE so a fallback will be used
  *
  * IF YOU DO NOT HAVE TO SUPPORT IE, you probably do not need this component
@@ -47,20 +47,19 @@ var VideoCover = function (_Component) {
   _createClass(VideoCover, [{
     key: 'render',
     value: function render() {
-      var style = _extends({}, this.props.style, {
-        objectFit: 'cover',
+      var style = _extends({
         width: '100%',
         height: '100%'
+      }, this.props.style, {
+        objectFit: 'cover'
       });
-      switch (this.props.forceFallback || /MSIE|Trident|Edge/.test(navigator.userAgent)) {
-        case true:
-          return _react2.default.createElement(_VideoCoverFallback2.default, this.props);
-        case false:
-        default:
-          return _react2.default.createElement('video', _extends({
-            style: style
-          }, this.props.videoOptions));
+      if (this.props.forceFallback || /MSIE|Trident|Edge/.test(window.navigator.userAgent)) {
+        return _react2.default.createElement(_VideoCoverFallback2.default, this.props);
       }
+      return _react2.default.createElement('video', _extends({
+        className: this.props.className,
+        style: style
+      }, this.props.videoOptions));
     }
   }]);
 
@@ -69,41 +68,49 @@ var VideoCover = function (_Component) {
 
 VideoCover.propTypes = {
   /**
-   * this component will use object-fit: cover if available.
-   * this should be the case in all modern browsers except IE.
-   * it is possible to force using the fallback for example during troubleshooting,
-   * but apart from that it you should not use it.
+   * This component will use object-fit: cover if available,
+   * that is in all modern browsers except IE.
+   * This prop forces use of the fallback. This is helpful during troubleshooting,
+   * but apart from that you should not use it.
+   * default: false
    */
   forceFallback: _react.PropTypes.bool,
   /**
+   * If set, an event listener on window-resize is added when the Fallback is used.
+   * It will re-evaluate the aspect-ratio and update the styles if necessary.
+   * This has no effect if the fallback is not used.
+   * The classic example where it makes sense to use this is when using a background video.
+   * If you need to react to different events to re-measure the aspect-ratio
+   * please see the onFallbackDidMount prop.
    * default: false
-   * if set an event listener on window-resize is added when the Fallback is used
-   * it will re-evaluate the aspect-ratio and update if necessary
-   * (basically the same as using the function from getResizeNotifyer in window resize)
-   * will only affect the Fallback component
    */
   remeasureOnWindowResize: _react.PropTypes.bool,
   /**
-   * default: false
-   * pass a function. when when the fallback is mounted, this function will be called
-   * with another function (resizeNotifyer) as parameter
-   * you can call resizeNotifyer to force re-measuring,
+   * Will be executed when the Fallback is mounted.
+   * The only parameter is a function, which can be used to force a re-measuring,
    * for example after the size of the surrounding container has changed.
-   * please note that this will only be invoked if the fallback is used, that is in IE.
-   * if object-fit is used it is not necessary to measure anything.
-   * long story short, this will only be called in IE and you should keep that in mind.
+   * Please note that this will only be invoked if the fallback is used, that is in IE.
+   * See ResizableCoverExample for an example implementation.
    */
-  getResizeNotifyer: _react.PropTypes.func,
+  onFallbackDidMount: _react.PropTypes.func,
   /**
-   * all of these will be passed to the <video/>
+   * Will be executed before the Fallback unmounts.
+   * You probably want to use this to clear any event-listeners added in onFallbackDidMount.
+   */
+  onFallbackWillUnmount: _react.PropTypes.func,
+  /**
+   * All members of videoOptions will be passed as props to the <video/>.
    */
   videoOptions: _react.PropTypes.object,
   /**
-   * additional styles, will be merged with those defined by this component
+   * Additional styles which will be merged with those defined by this component.
+   * Please note that some styles are not possible to override, in particular:
+   *   - object-fit: cover (when the fallback is not used)
+   *   - position: relative and overflow: hidden (when the fallback is used)
    */
   style: _react.PropTypes.object,
   /**
-   * set a custom classname
+   * Use this to set a custom className.
    */
   className: _react.PropTypes.string
 };

@@ -12,7 +12,9 @@
     "test": "karma start --single-run",
     "eslint": "eslint lib examples",
     "eslint-fix": "eslint --fix lib examples",
-    "gh-pages": "git subtree push --prefix dist_examples origin gh-pages"
+    "gh-pages": "git subtree push --prefix dist_examples origin gh-pages",
+    "preversion": "npm test",
+    "version": "npm run build && git add -A dist"
   },
   "author": "Tobias Kloht",
   "license": "MIT",

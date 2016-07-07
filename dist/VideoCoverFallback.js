@@ -38,14 +38,18 @@ var VideoCoverFallback = function (_Component) {
       innerRatio: undefined,
       outerRatio: undefined
     }, _this.updateContainerRatio = function () {
-      var _this$refs$container$ = _this.refs.container.getBoundingClientRect();
+      var ref = arguments.length <= 0 || arguments[0] === undefined ? _this.containerRef : arguments[0];
 
-      var width = _this$refs$container$.width;
-      var height = _this$refs$container$.height;
+      if (ref) {
+        var _ref$getBoundingClien = ref.getBoundingClientRect();
 
-      _this.setState({
-        outerRatio: width / height
-      });
+        var width = _ref$getBoundingClien.width;
+        var height = _ref$getBoundingClien.height;
+
+        _this.setState({
+          outerRatio: width / height
+        });
+      }
     }, _this.updateVideoRatio = function (width, height) {
       _this.setState({
         innerRatio: width / height
@@ -61,8 +65,8 @@ var VideoCoverFallback = function (_Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.updateContainerRatio();
-      if (typeof this.props.getResizeNotifyer === 'function') {
-        this.props.getResizeNotifyer(this.updateContainerRatio);
+      if (typeof this.props.onFallbackDidMount === 'function') {
+        this.props.onFallbackDidMount(this.updateContainerRatio);
       }
       if (this.props.remeasureOnWindowResize) {
         this.initEventListeners();
@@ -83,6 +87,9 @@ var VideoCoverFallback = function (_Component) {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       this.removeEventListeners();
+      if (typeof this.props.onFallbackWillUnmount === 'function') {
+        this.props.onFallbackWillUnmount();
+      }
     }
   }, {
     key: 'render',
@@ -93,7 +100,7 @@ var VideoCoverFallback = function (_Component) {
       var innerRatio = _state.innerRatio;
       var outerRatio = _state.outerRatio;
 
-      var style = _extends({}, this.props.style, {
+      var style = {
         width: innerRatio > outerRatio ? 'auto' : '100%',
         height: innerRatio > outerRatio ? '100%' : 'auto',
 
@@ -106,18 +113,25 @@ var VideoCoverFallback = function (_Component) {
         left: '-9999px',
         right: '-9999px',
         margin: 'auto'
-      });
+      };
 
-      var outerStyle = {
+      var outerStyle = _extends({
         width: '100%',
-        height: '100%',
+        height: '100%'
+      }, this.props.style, {
         position: 'relative',
         overflow: 'hidden'
-      };
+      });
 
       return _react2.default.createElement(
         'div',
-        { style: outerStyle, ref: 'container' },
+        {
+          style: outerStyle,
+          ref: function ref(_ref) {
+            _this2.containerRef = _ref;
+          },
+          className: this.props.className
+        },
         _react2.default.createElement('video', _extends({
           onLoadedData: function onLoadedData(event) {
             _this2.updateVideoRatio(event.target.videoWidth, event.target.videoHeight);
@@ -133,9 +147,11 @@ var VideoCoverFallback = function (_Component) {
 
 VideoCoverFallback.propTypes = {
   style: _react.PropTypes.object,
-  getResizeNotifyer: _react.PropTypes.func,
+  onFallbackDidMount: _react.PropTypes.func,
+  onFallbackWillUnmount: _react.PropTypes.func,
   videoOptions: _react.PropTypes.object,
   forceFallback: _react.PropTypes.bool,
-  remeasureOnWindowResize: _react.PropTypes.bool
+  remeasureOnWindowResize: _react.PropTypes.bool,
+  className: _react.PropTypes.string
 };
 exports.default = VideoCoverFallback;
