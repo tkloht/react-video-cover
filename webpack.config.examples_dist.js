@@ -44,7 +44,7 @@ const CONFIG_EXAMPLE_DIST = {
   },
   output: {
     path: path.resolve(__dirname, 'dist_examples'),
-    publicPath: '/react-video-cover',
+    publicPath: '/',
     filename: 'bundle.js',
   },
   plugins: [
