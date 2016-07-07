@@ -14,7 +14,7 @@ const NavBar = () => (
     </ul>
     <div className={css.ExternalNav}>
       <a href="http://github.com/t-obi/react-video-cover/">
-        <img alt="View on GitHub" src="/GitHub-Mark-32px.png" />
+        <img alt="View on GitHub" src="/react-video-cover/GitHub-Mark-32px.png" />
       </a>
     </div>
   </div>
