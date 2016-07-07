@@ -25042,7 +25042,7 @@
 	      _react2.default.createElement(
 	        'a',
 	        { href: 'http://github.com/t-obi/react-video-cover/' },
-	        _react2.default.createElement('img', { alt: 'View on GitHub', src: '/GitHub-Mark-32px.png' })
+	        _react2.default.createElement('img', { alt: 'View on GitHub', src: '/react-video-cover/GitHub-Mark-32px.png' })
 	      )
 	    )
 	  );
