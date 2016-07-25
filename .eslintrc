@@ -6,6 +6,7 @@
   "parser": "babel-eslint",
   "rules": {
     "react/jsx-uses-react": 1,
+    "react/prefer-stateless-function": 0,
     "react/jsx-no-undef": 2,
     "react/wrap-multilines": 2
   },
