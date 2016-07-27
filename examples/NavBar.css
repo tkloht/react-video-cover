@@ -53,7 +53,7 @@
   transition: all 0.3s;
 }
 
-.NavBar .foo {
+.NavBar .activeItemIndicator {
   width: 0%;
   height: 3px;
   background: #247BA0;
@@ -65,7 +65,7 @@
   transition-delay: 0.1s;
 }
 
-.NavBar .active .foo {
+.NavBar .active .activeItemIndicator {
   visibility: visible;
   width: 100%;
   transition: all 0.2s;

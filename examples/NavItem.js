@@ -18,7 +18,7 @@ class Navitem extends Component {
           to={this.props.to}
         >
           {this.props.label}
-          <div className={css.foo} />
+          <div className={css.activeItemIndicator} />
         </IndexLink>
       </li>
     );
