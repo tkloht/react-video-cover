@@ -93,10 +93,10 @@ class CoverExample extends Component {
               videoOptions={videoOptions}
               forceFallback={this.state.forceFallback}
               remeasureOnWindowResize={this.state.remeasureOnWindowResize}
-              onFallbackMounted={resizeNotifier => {
+              onFallbackDidMount={resizeNotifier => {
                 this.resizeNotifier = resizeNotifier;
               }}
-              onFallbackUnmounted={() => {
+              onFallbackWillUnmount={() => {
                 this.resizeNotifier = () => {};
               }}
             />
