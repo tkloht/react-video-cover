@@ -6,38 +6,48 @@ body {
 }
 
 ::selection{
-	color: #247BA0;
-	background: #FFE066;
+  color: #247BA0;
+  background: #FFE066;
 } 
 ::-moz-selection {
-	color: #247BA0;
-	background: #FFE066;
+  color: #247BA0;
+  background: #FFE066;
 }
 .Input {
-	padding: 10px;
-	display: flex;
-	max-width: 500px;
+  padding: 10px;
+  display: flex;
+  max-width: 500px;
 }
 
 .Input input, .RefreshIcon {
-	width: 50px;
+  width: 50px;
 }
 
 .Input span {
-	flex: 1;
+  flex: 1;
 }
 
 .ResizableExample video {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .App {
-	padding: 50px 20px;
-	max-width: 720px;
+  padding: 50px 20px;
+  max-width: 720px;
 }
 
 .RefreshIcon {
-	cursor: pointer;
+  cursor: pointer;
+}
+
+.ResizableBox {
+  width: 100px;
+  height: 100px;
+  background: #247BA0;
+  padding: 10px;
+  resize: both;
+  overflow: hidden;
+  box-shadow: 4px 4px 6px -5px #50514F;
 }
 
 
