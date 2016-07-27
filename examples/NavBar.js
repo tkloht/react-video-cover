@@ -1,23 +1,29 @@
-import React from 'react';
-import css from './styles.css';
-
+import React, { Component } from 'react';
+import css from './NavBar.css';
+import SVGButtonStyles from './SVGButton.css';
+import NavItem from './NavItem';
 import { IndexLink } from 'react-router';
+import { GithubLogo } from './Icons.js';
+/* global CONFIG */
 
-
-const NavBar = () => (
-  <div className={css.NavBar}>
-    <h1>react-video-cover</h1>
-    <ul>
-      <li><IndexLink to="/resizable">Example 1</IndexLink></li>
-      <li><IndexLink to="/background">Example 2</IndexLink></li>
-      <li><IndexLink to="/minimal">Example 3</IndexLink></li>
-    </ul>
-    <div className={css.ExternalNav}>
-      <a href="http://github.com/t-obi/react-video-cover/">
-        <img alt="View on GitHub" src="/react-video-cover/GitHub-Mark-32px.png" />
-      </a>
-    </div>
-  </div>
-);
+class NavBar extends Component {
+  render() {
+    return (
+      <div className={`${css.NavBar} ${SVGButtonStyles.SVGButton}`}>
+        <h1><IndexLink to="/">react-video-cover</IndexLink></h1>
+        <ul>
+          <NavItem to="/resizable" label="Example 1" />
+          <NavItem to="/background" label="Example 2" />
+          <NavItem to="/minimal" label="Example 3" />
+        </ul>
+        <div className={css.ExternalNav}>
+          <a href="http://github.com/t-obi/react-video-cover/">
+            <GithubLogo />
+          </a>
+        </div>
+      </div>
+    );
+  }
+}
 
 export default NavBar;

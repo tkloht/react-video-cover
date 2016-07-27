@@ -8,6 +8,8 @@ const EXAMPLES_PATH = path.resolve(ROOT_PATH, 'examples');
 const LIB_PATH = path.resolve(ROOT_PATH, 'lib');
 const TESTS_PATH = path.resolve(ROOT_PATH, 'tests');
 
+const PUBLIC_PATH = '/';
+
 const CONFIG_DEV = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json'],
@@ -56,12 +58,15 @@ const CONFIG_DEV = {
   },
   output: {
     path: path.resolve(__dirname, 'dist_examples'),
-    publicPath: '/',
+    publicPath: PUBLIC_PATH,
     filename: 'bundle.js',
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
+      CONFIG: {
+        basePath: JSON.stringify(PUBLIC_PATH),
+      },
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),

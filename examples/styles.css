@@ -1,16 +1,25 @@
 body {
-  background: #f0f0f0;
+  background: #FFFFFF;
   font-family: sans-serif;
   font-weight: 200;
+  color: #50514F;
 }
 
+::selection{
+	color: #247BA0;
+	background: #FFE066;
+} 
+::-moz-selection {
+	color: #247BA0;
+	background: #FFE066;
+}
 .Input {
 	padding: 10px;
 	display: flex;
 	max-width: 500px;
 }
 
-.Input input {
+.Input input, .RefreshIcon {
 	width: 50px;
 }
 
@@ -22,40 +31,15 @@ body {
 	cursor: pointer;
 }
 
-.NavBar {
-	background: silver;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 50px;
-	overflow: hidden;
-	display: flex;
-	padding: 0 10px;
+.App {
+	padding: 50px 20px;
+	max-width: 720px;
 }
 
-.NavBar h1 {
-	margin: 0;
-	line-height: 50px;
-	display: inline-block;
-}
-.NavBar ul {
-	display: inline-block;
-	margin: 0;
-	vertical-align: top;
-}
-.NavBar li {
-	margin: 0;
-	line-height: 50px;
-	display: inline-block;
-}
-.NavBar li + li {
-	margin-left: 20px;
+.RefreshIcon {
+	cursor: pointer;
 }
 
-.NavBar .ExternalNav {
-	margin: auto 0 auto auto;
-}
 
 .ExternalNav img:hover {
 	-webkit-filter: brightness(4);

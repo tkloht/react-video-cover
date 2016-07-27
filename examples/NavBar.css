@@ -1,0 +1,74 @@
+.NavBar {
+  background: #FFE066;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  overflow: hidden;
+  display: flex;
+  padding: 0 10px;
+  box-shadow: 0 4px 6px -6px #50514F;
+}
+
+.NavBar h1 {
+  margin: 0;
+  line-height: 50px;
+  display: inline-block;
+}
+.NavBar ul {
+  display: inline-block;
+  margin: 0;
+  padding: 0 20px;
+  vertical-align: top;
+}
+.NavBar li {
+  margin: 0;
+  line-height: 50px;
+  display: inline-block;
+  position: relative;
+}
+.NavBar li a {
+  padding: 0 10px;
+}
+
+.NavBar li a {
+  display: inline-block;
+  line-height: 50px;
+  height: 50px;
+}
+
+.NavBar .ExternalNav {
+  margin: auto 0 auto auto;
+}
+
+.NavBar a {
+  font-weight: bold;
+  color: #50514F;
+  text-decoration: none;
+}
+
+.NavBar li a:hover {
+  color: #247BA0;
+  transition: all 0.3s;
+}
+
+.NavBar .foo {
+  width: 0%;
+  height: 3px;
+  background: #247BA0;
+  position: absolute;
+  bottom: 0;
+  margin: 0 -10px;
+  visibility: hidden;
+  transition: all 0.1s;
+  transition-delay: 0.1s;
+}
+
+.NavBar .active .foo {
+  visibility: visible;
+  width: 100%;
+  transition: all 0.2s;
+  transition-delay: 0;
+}
+

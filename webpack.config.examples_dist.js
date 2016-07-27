@@ -6,6 +6,8 @@ const ROOT_PATH = path.resolve(__dirname);
 const EXAMPLES_PATH = path.resolve(ROOT_PATH, 'examples');
 const LIB_PATH = path.resolve(ROOT_PATH, 'lib');
 
+const PUBLIC_PATH = '/';
+
 const CONFIG_EXAMPLE_DIST = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json'],
@@ -44,12 +46,15 @@ const CONFIG_EXAMPLE_DIST = {
   },
   output: {
     path: path.resolve(__dirname, 'dist_examples'),
-    publicPath: '/react-video-cover',
+    publicPath: PUBLIC_PATH,
     filename: 'bundle.js',
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
+      CONFIG: {
+        basePath: JSON.stringify(PUBLIC_PATH),
+      },
     }),
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({

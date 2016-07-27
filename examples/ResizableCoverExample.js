@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import Cover from '../lib/VideoCover';
 import css from './styles.css';
+import { RefreshIcon } from './Icons';
+import SVGButtonStyles from './SVGButton.css';
 
 const style = {
   width: 100,
   height: 100,
-  background: 'teal',
+  background: '#247BA0',
   padding: 10,
   resize: 'both',
   overflow: 'hidden',
@@ -62,7 +64,12 @@ class CoverExample extends Component {
           <span>Force IE-Fallback in non-IE Browsers</span>
         </div>
         <div className={css.Input}>
-          <input type="button" value="resize" onClick={this.resizeNotifier} />
+          <div
+            className={`${SVGButtonStyles.SVGButton} ${css.RefreshIcon}`}
+            onClick={() => this.resizeNotifier()}
+          >
+            <RefreshIcon />
+          </div>
           <span>
             When using the IE-Fallback click this button to notify that a resize has happened.
             Without the IE Fallback this is not necessary and will do nothing.
