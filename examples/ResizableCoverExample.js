@@ -3,27 +3,21 @@ import Cover from '../lib/VideoCover';
 import css from './styles.css';
 import { RefreshIcon } from './Icons';
 import SVGButtonStyles from './SVGButton.css';
+import cx from 'classnames';
 
-const style = {
-  width: 100,
-  height: 100,
-  background: '#247BA0',
-  padding: 10,
-  resize: 'both',
-  overflow: 'hidden',
-};
 class CoverExample extends Component {
 
   state = {
     forceFallback: false,
     remeasureOnWindowResize: false,
+    isResizing: false,
   };
 
   resizeNotifier = () => {};
 
   render() {
     const videoOptions = {
-      src: 'http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4',
+      src: 'http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4#t=5',
       ref: videoRef => {
         this.videoRef = videoRef;
       },
@@ -65,8 +59,18 @@ class CoverExample extends Component {
         </div>
         <div className={css.Input}>
           <div
-            className={`${SVGButtonStyles.SVGButton} ${css.RefreshIcon}`}
-            onClick={() => this.resizeNotifier()}
+            className={cx(SVGButtonStyles.SVGButton, css.RefreshIcon, {
+              [css.active]: this.state.isResizing,
+            })}
+            onClick={() => {
+              // isResizing will set 'active' classname, which starts rotate-animation
+              this.setState({ isResizing: true });
+              // then reset classname after animation has ended
+              // i know, this is not great but it works pretty good
+              // TODO: use animationend event
+              setTimeout(() => this.setState({ isResizing: false }), 400);
+              this.resizeNotifier();
+            }}
           >
             <RefreshIcon />
           </div>
@@ -81,7 +85,7 @@ class CoverExample extends Component {
           If you are looking at this page in IE I you could check out the second example,
           which allows you to see the same effect by resizing your browser window.
         </div>
-        <div style={style} >
+        <div className={css.ResizableBox} >
           <div
             style={{
               overflow: 'hidden',

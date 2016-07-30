@@ -50,17 +50,15 @@ body {
   box-shadow: 4px 4px 6px -5px #50514F;
 }
 
-
-.ExternalNav img:hover {
-	-webkit-filter: brightness(4);
-	filter: brightness(2.5);
-	transition: all 0.3s;
+.RefreshIcon.active svg {
+  animation-name: rotate; 
+  animation-timing-function: linear;
+  transition-property: transform;
+  animation-duration: 0.3s; 
+  animation-iteration-count: 1;
 }
 
-.ExternalNav img {
-	width: 32px;
-	height: 32px;
-}
-.App {
-	padding-top: 50px;
+@keyframes rotate {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
 }
