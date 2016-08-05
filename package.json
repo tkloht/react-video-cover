@@ -40,7 +40,7 @@
     "babel-preset-react": "6.11.1",
     "babel-preset-react-hmre": "1.1.1",
     "babel-preset-stage-0": "6.5.0",
-    "babel-preset-stage-1": "6.5.0",
+    "babel-preset-stage-1": "6.13.0",
     "body-parser": "1.15.2",
     "bundle-loader": "0.5.4",
     "chai": "3.5.0",
