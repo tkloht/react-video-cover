@@ -74,7 +74,7 @@
     "react-transform-catch-errors": "1.0.2",
     "react-transform-hmr": "1.0.4",
     "simulant": "0.2.2",
-    "sinon": "1.17.4",
+    "sinon": "1.17.5",
     "sinon-chai": "2.8.0",
     "source-map-support": "0.4.1",
     "style-loader": "0.13.1",
