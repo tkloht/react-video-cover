@@ -187,7 +187,6 @@ describe('VideoCoverFallback', () => {
 
   describe('updateContainerRatio()', () => {
     it('should set state.outerRatio to ratio of container width/height', () => {
-      const wrapper = shallow(<VideoCoverFallback />);
       const mockRef = {
         getBoundingClientRect: () => {
           const result = {
@@ -197,7 +196,11 @@ describe('VideoCoverFallback', () => {
           return result;
         },
       };
-      wrapper.instance().updateContainerRatio(mockRef);
+      class WithRef extends VideoCoverFallback {
+        containerRef = mockRef;
+      }
+      const wrapper = shallow(<WithRef />);
+      wrapper.instance().updateContainerRatio();
       expect(wrapper).to.have.state('outerRatio', 4 / 5);
     });
   });
