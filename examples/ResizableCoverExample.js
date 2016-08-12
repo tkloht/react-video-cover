@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Cover from '../lib/VideoCover';
 import css from './styles.css';
 import { RefreshIcon } from './Icons';
-import SVGButtonStyles from './SVGButton.css';
 import cx from 'classnames';
 
 class CoverExample extends Component {
@@ -36,18 +35,6 @@ class CoverExample extends Component {
         <div className={css.Input}>
           <input
             type="checkbox"
-            checked={this.state.remeasureOnWindowResize}
-            onClick={() => {
-              this.setState({
-                remeasureOnWindowResize: !this.state.remeasureOnWindowResize,
-              });
-            }}
-          />
-          <span>Remeasure on window resize</span>
-        </div>
-        <div className={css.Input}>
-          <input
-            type="checkbox"
             checked={this.state.forceFallback}
             onClick={() => {
               this.setState({
@@ -58,8 +45,20 @@ class CoverExample extends Component {
           <span>Force IE-Fallback in non-IE Browsers</span>
         </div>
         <div className={css.Input}>
+          <input
+            type="checkbox"
+            checked={this.state.remeasureOnWindowResize}
+            onClick={() => {
+              this.setState({
+                remeasureOnWindowResize: !this.state.remeasureOnWindowResize,
+              });
+            }}
+          />
+          <span>Remeasure on window resize</span>
+        </div>
+        <div className={css.Input}>
           <div
-            className={cx(SVGButtonStyles.SVGButton, css.RefreshIcon, {
+            className={cx(css.RefreshIcon, {
               [css.active]: this.state.isResizing,
             })}
             onClick={() => {
