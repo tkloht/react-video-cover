@@ -3,6 +3,15 @@ body {
   font-family: sans-serif;
   font-weight: 200;
   color: #50514F;
+  margin: 0;
+}
+
+a {
+  color: #50514F;
+}
+a:hover {
+  color: #247BA0;
+  transition: all 0.3s;
 }
 
 ::selection{
@@ -45,6 +54,7 @@ body {
   height: 100px;
   background: #247BA0;
   padding: 10px;
+  margin-top: 10px;
   resize: both;
   overflow: hidden;
   box-shadow: 4px 4px 6px -5px #50514F;
@@ -54,7 +64,7 @@ body {
   animation-name: rotate; 
   animation-timing-function: linear;
   transition-property: transform;
-  animation-duration: 0.3s; 
+  animation-duration: 0.3s;
   animation-iteration-count: 1;
 }
 
