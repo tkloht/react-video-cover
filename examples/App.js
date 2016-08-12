@@ -14,6 +14,16 @@ const App = props => (
     <div className={css.App}>
       {props.children}
     </div>
+    <footer className={css.Footer}>
+      <div>Made by Tobias Kloht</div>
+      <div>
+        <a href="mailto:tobias.kloht@gmail.com">Email</a>
+        <span> - </span>
+        <a href="https://www.twitter.com/tkloht">Twitter</a>
+        <span> - </span>
+        <a href="https://t-obi.github.io/imprint">Imprint</a>
+      </div>
+    </footer>
   </div>
 );
 
