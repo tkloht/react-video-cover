@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import css from './NavBar.css';
-import SVGButtonStyles from './SVGButton.css';
 import NavItem from './NavItem';
 import { IndexLink } from 'react-router';
 import { GithubLogo } from './Icons.js';
@@ -9,7 +8,7 @@ import { GithubLogo } from './Icons.js';
 class NavBar extends Component {
   render() {
     return (
-      <div className={`${css.NavBar} ${SVGButtonStyles.SVGButton}`}>
+      <div className={css.NavBar}>
         <h1><IndexLink to="/">react-video-cover</IndexLink></h1>
         <ul>
           <NavItem to="/resizable" label="Example 1" />

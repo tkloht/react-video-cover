@@ -31,9 +31,9 @@ body {
   cursor: pointer;
 }
 
-.App {
-  padding: 50px 20px;
-  max-width: 720px;
+.Content {
+  flex: 1;
+  margin-top: 60px;
 }
 
 .RefreshIcon {
@@ -61,6 +61,16 @@ body {
 @keyframes rotate {
   from {transform: rotate(0deg);}
   to {transform: rotate(360deg);}
+}
+
+.App {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  padding: 0 20px;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .Footer {

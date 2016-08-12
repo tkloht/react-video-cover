@@ -9,9 +9,9 @@ const propTypes = {
 };
 
 const App = props => (
-  <div>
+  <div className={css.App}>
     <NavBar />
-    <div className={css.App}>
+    <div className={css.Content}>
       {props.children}
     </div>
     <footer className={css.Footer}>
