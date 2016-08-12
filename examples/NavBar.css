@@ -44,13 +44,7 @@
 
 .NavBar a {
   font-weight: bold;
-  color: #50514F;
   text-decoration: none;
-}
-
-.NavBar li a:hover {
-  color: #247BA0;
-  transition: all 0.3s;
 }
 
 .NavBar .activeItemIndicator {
