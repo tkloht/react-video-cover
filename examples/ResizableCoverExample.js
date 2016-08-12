@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import cx from 'classnames';
 import Cover from '../lib/VideoCover';
 import css from './styles.css';
 import { RefreshIcon } from './Icons';
-import cx from 'classnames';
 
 class CoverExample extends Component {
 

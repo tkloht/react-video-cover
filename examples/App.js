@@ -1,11 +1,10 @@
-import React from 'react';
-const { element } = React.PropTypes;
+import React, { PropTypes } from 'react';
 
 import NavBar from './NavBar';
 import css from './styles.css';
 
 const propTypes = {
-  children: element,
+  children: PropTypes.element,
 };
 
 const App = props => (

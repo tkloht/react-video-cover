@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { IndexLink } from 'react-router';
 import css from './NavBar.css';
 import NavItem from './NavItem';
-import { IndexLink } from 'react-router';
 import { GithubLogo } from './Icons.js';
 /* global CONFIG */
 
