@@ -24540,21 +24540,25 @@
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _NoMatch = __webpack_require__(224);
+	var _NoMatch = __webpack_require__(230);
 
 	var _NoMatch2 = _interopRequireDefault(_NoMatch);
 
-	var _MinimalExample = __webpack_require__(225);
+	var _MinimalExample = __webpack_require__(231);
 
 	var _MinimalExample2 = _interopRequireDefault(_MinimalExample);
 
-	var _ResizableCoverExample = __webpack_require__(228);
+	var _ResizableCoverExample = __webpack_require__(234);
 
 	var _ResizableCoverExample2 = _interopRequireDefault(_ResizableCoverExample);
 
-	var _BackgroundCoverExample = __webpack_require__(229);
+	var _BackgroundCoverExample = __webpack_require__(236);
 
 	var _BackgroundCoverExample2 = _interopRequireDefault(_BackgroundCoverExample);
+
+	var _Home = __webpack_require__(237);
+
+	var _Home2 = _interopRequireDefault(_Home);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24564,7 +24568,7 @@
 	  _react2.default.createElement(
 	    _reactRouter.Route,
 	    { path: '/', component: _App2.default },
-	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _ResizableCoverExample2.default }),
+	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'resizable', component: _ResizableCoverExample2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'background', component: _BackgroundCoverExample2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'minimal', component: _MinimalExample2.default })
@@ -24607,15 +24611,19 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  background: #f0f0f0;\n  font-family: sans-serif;\n  font-weight: 200;\n}\n\n.styles__Input___3bcZM {\n\tpadding: 10px;\n\tdisplay: flex;\n\tmax-width: 500px;\n}\n\n.styles__Input___3bcZM input {\n\twidth: 50px;\n}\n\n.styles__Input___3bcZM span {\n\tflex: 1;\n}\n\n.styles__ResizableExample___2zv8z video {\n\tcursor: pointer;\n}\n\n.styles__NavBar___2QzMH {\n\tbackground: silver;\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\tright: 0;\n\theight: 50px;\n\toverflow: hidden;\n\tdisplay: flex;\n\tpadding: 0 10px;\n}\n\n.styles__NavBar___2QzMH h1 {\n\tmargin: 0;\n\tline-height: 50px;\n\tdisplay: inline-block;\n}\n.styles__NavBar___2QzMH ul {\n\tdisplay: inline-block;\n\tmargin: 0;\n\tvertical-align: top;\n}\n.styles__NavBar___2QzMH li {\n\tmargin: 0;\n\tline-height: 50px;\n\tdisplay: inline-block;\n}\n.styles__NavBar___2QzMH li + li {\n\tmargin-left: 20px;\n}\n\n.styles__NavBar___2QzMH .styles__ExternalNav___3bUCv {\n\tmargin: auto 0 auto auto;\n}\n\n.styles__ExternalNav___3bUCv img:hover {\n\t-webkit-filter: brightness(4);\n\tfilter: brightness(2.5);\n\ttransition: all 0.3s;\n}\n\n.styles__ExternalNav___3bUCv img {\n\twidth: 32px;\n\theight: 32px;\n}\n.styles__App___HrQsw {\n\tpadding-top: 50px;\n}\n", ""]);
+	exports.push([module.id, "body {\n  background: #FFFFFF;\n  font-family: sans-serif;\n  font-weight: 200;\n  color: #50514F;\n  margin: 0;\n}\n\na {\n  color: #50514F;\n}\na:hover {\n  color: #247BA0;\n  transition: all 0.3s;\n}\n\n::selection{\n  color: #247BA0;\n  background: #FFE066;\n} \n::-moz-selection {\n  color: #247BA0;\n  background: #FFE066;\n}\n.styles__Input___3bcZM {\n  padding: 10px;\n  display: flex;\n  max-width: 500px;\n}\n\n.styles__Input___3bcZM input, .styles__RefreshIcon___3Pq_z {\n  width: 50px;\n}\n\n.styles__Input___3bcZM span {\n  flex: 1;\n}\n\n.styles__ResizableExample___2zv8z video {\n  cursor: pointer;\n}\n\n.styles__Content___3_a-f {\n  flex: 1;\n  margin-top: 60px;\n}\n\n.styles__RefreshIcon___3Pq_z {\n  cursor: pointer;\n}\n\n.styles__ResizableBox___30gze {\n  width: 100px;\n  height: 100px;\n  background: #247BA0;\n  padding: 10px;\n  margin-top: 10px;\n  resize: both;\n  overflow: hidden;\n  box-shadow: 4px 4px 6px -5px #50514F;\n}\n\n.styles__RefreshIcon___3Pq_z.styles__active___2Eftv svg {\n  animation-name: styles__rotate___MYFpT; \n  animation-timing-function: linear;\n  transition-property: transform;\n  animation-duration: 0.3s;\n  animation-iteration-count: 1;\n}\n\n@keyframes styles__rotate___MYFpT {\n  from {transform: rotate(0deg);}\n  to {transform: rotate(360deg);}\n}\n\n.styles__App___HrQsw {\n  display: flex;\n  min-height: 100vh;\n  flex-direction: column;\n\n  padding: 0 20px;\n  max-width: 720px;\n  margin: 0 auto;\n}\n\n.styles__Footer___3dx5Y {\n  margin-top: 20px;\n  padding: 10px 20px;\n  border-top: 1px solid #247BA0;\n  text-align: center;\n}\n\n", ""]);
 
 	// exports
 	exports.locals = {
 		"Input": "styles__Input___3bcZM",
+		"RefreshIcon": "styles__RefreshIcon___3Pq_z",
 		"ResizableExample": "styles__ResizableExample___2zv8z",
-		"NavBar": "styles__NavBar___2QzMH",
-		"ExternalNav": "styles__ExternalNav___3bUCv",
-		"App": "styles__App___HrQsw"
+		"Content": "styles__Content___3_a-f",
+		"ResizableBox": "styles__ResizableBox___30gze",
+		"active": "styles__active___2Eftv",
+		"rotate": "styles__rotate___MYFpT",
+		"App": "styles__App___HrQsw",
+		"Footer": "styles__Footer___3dx5Y"
 	};
 
 /***/ },
@@ -24960,12 +24968,50 @@
 	var App = function App(props) {
 	  return _react2.default.createElement(
 	    'div',
-	    null,
+	    { className: _styles2.default.App },
 	    _react2.default.createElement(_NavBar2.default, null),
 	    _react2.default.createElement(
 	      'div',
-	      { className: _styles2.default.App },
+	      { className: _styles2.default.Content },
 	      props.children
+	    ),
+	    _react2.default.createElement(
+	      'footer',
+	      { className: _styles2.default.Footer },
+	      _react2.default.createElement(
+	        'div',
+	        null,
+	        'Made by Tobias Kloht'
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'a',
+	          { href: 'mailto:tobias.kloht@gmail.com' },
+	          'Email'
+	        ),
+	        _react2.default.createElement(
+	          'span',
+	          null,
+	          ' - '
+	        ),
+	        _react2.default.createElement(
+	          'a',
+	          { href: 'https://www.twitter.com/tkloht' },
+	          'Twitter'
+	        ),
+	        _react2.default.createElement(
+	          'span',
+	          null,
+	          ' - '
+	        ),
+	        _react2.default.createElement(
+	          'a',
+	          { href: 'https://t-obi.github.io/imprint' },
+	          'Imprint'
+	        )
+	      )
 	    )
 	  );
 	};
@@ -24984,74 +25030,292 @@
 	  value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styles = __webpack_require__(218);
+	var _NavBar = __webpack_require__(224);
 
-	var _styles2 = _interopRequireDefault(_styles);
+	var _NavBar2 = _interopRequireDefault(_NavBar);
+
+	var _NavItem = __webpack_require__(226);
+
+	var _NavItem2 = _interopRequireDefault(_NavItem);
 
 	var _reactRouter = __webpack_require__(155);
 
+	var _Icons = __webpack_require__(227);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var NavBar = function NavBar() {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: _styles2.default.NavBar },
-	    _react2.default.createElement(
-	      'h1',
-	      null,
-	      'react-video-cover'
-	    ),
-	    _react2.default.createElement(
-	      'ul',
-	      null,
-	      _react2.default.createElement(
-	        'li',
-	        null,
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	/* global CONFIG */
+
+	var NavBar = function (_Component) {
+	  _inherits(NavBar, _Component);
+
+	  function NavBar() {
+	    _classCallCheck(this, NavBar);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(NavBar).apply(this, arguments));
+	  }
+
+	  _createClass(NavBar, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: _NavBar2.default.NavBar },
 	        _react2.default.createElement(
-	          _reactRouter.IndexLink,
-	          { to: '/resizable' },
-	          'Example 1'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
+	          'h1',
+	          null,
+	          _react2.default.createElement(
+	            _reactRouter.IndexLink,
+	            { to: '/' },
+	            'react-video-cover'
+	          )
+	        ),
 	        _react2.default.createElement(
-	          _reactRouter.IndexLink,
-	          { to: '/background' },
-	          'Example 2'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'li',
-	        null,
+	          'ul',
+	          null,
+	          _react2.default.createElement(_NavItem2.default, { to: '/resizable', label: 'Example 1' }),
+	          _react2.default.createElement(_NavItem2.default, { to: '/background', label: 'Example 2' }),
+	          _react2.default.createElement(_NavItem2.default, { to: '/minimal', label: 'Example 3' })
+	        ),
 	        _react2.default.createElement(
-	          _reactRouter.IndexLink,
-	          { to: '/minimal' },
-	          'Example 3'
+	          'div',
+	          { className: _NavBar2.default.ExternalNav },
+	          _react2.default.createElement(
+	            'a',
+	            { href: 'http://github.com/t-obi/react-video-cover/' },
+	            _react2.default.createElement(_Icons.GithubLogo, null)
+	          )
 	        )
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: _styles2.default.ExternalNav },
-	      _react2.default.createElement(
-	        'a',
-	        { href: 'http://github.com/t-obi/react-video-cover/' },
-	        _react2.default.createElement('img', { alt: 'View on GitHub', src: '/react-video-cover/GitHub-Mark-32px.png' })
-	      )
-	    )
-	  );
-	};
+	      );
+	    }
+	  }]);
+
+	  return NavBar;
+	}(_react.Component);
 
 	exports.default = NavBar;
 
 /***/ },
 /* 224 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(225);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(221)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js?modules&localIdentName=[name]__[local]___[hash:base64:5]!./NavBar.css", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js?modules&localIdentName=[name]__[local]___[hash:base64:5]!./NavBar.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 225 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(220)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".NavBar__NavBar___1LpQO {\n  background: #FFE066;\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 50px;\n  overflow: hidden;\n  display: flex;\n  padding: 0 10px;\n  box-shadow: 0 4px 6px -6px #50514F;\n}\n\n.NavBar__NavBar___1LpQO h1 {\n  margin: 0;\n  line-height: 50px;\n  display: inline-block;\n}\n.NavBar__NavBar___1LpQO ul {\n  display: inline-block;\n  margin: 0;\n  padding: 0 20px;\n  vertical-align: top;\n}\n.NavBar__NavBar___1LpQO li {\n  margin: 0;\n  line-height: 50px;\n  display: inline-block;\n  position: relative;\n}\n.NavBar__NavBar___1LpQO li a {\n  padding: 0 10px;\n}\n\n.NavBar__NavBar___1LpQO li a {\n  display: inline-block;\n  line-height: 50px;\n  height: 50px;\n}\n\n.NavBar__NavBar___1LpQO .NavBar__ExternalNav___35UhZ {\n  margin: auto 0 auto auto;\n}\n\n.NavBar__NavBar___1LpQO a {\n  font-weight: bold;\n  text-decoration: none;\n}\n\n.NavBar__NavBar___1LpQO .NavBar__activeItemIndicator___1inOz {\n  width: 0%;\n  height: 3px;\n  background: #247BA0;\n  position: absolute;\n  bottom: 0;\n  margin: 0 -10px;\n  visibility: hidden;\n  transition: all 0.1s;\n  transition-delay: 0.1s;\n}\n\n.NavBar__NavBar___1LpQO .NavBar__active___2NfWf .NavBar__activeItemIndicator___1inOz {\n  visibility: visible;\n  width: 100%;\n  transition: all 0.2s;\n  transition-delay: 0;\n}\n\n", ""]);
+
+	// exports
+	exports.locals = {
+		"NavBar": "NavBar__NavBar___1LpQO",
+		"ExternalNav": "NavBar__ExternalNav___35UhZ",
+		"activeItemIndicator": "NavBar__activeItemIndicator___1inOz",
+		"active": "NavBar__active___2NfWf"
+	};
+
+/***/ },
+/* 226 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _NavBar = __webpack_require__(224);
+
+	var _NavBar2 = _interopRequireDefault(_NavBar);
+
+	var _reactRouter = __webpack_require__(155);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Navitem = function (_Component) {
+	  _inherits(Navitem, _Component);
+
+	  function Navitem() {
+	    _classCallCheck(this, Navitem);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Navitem).apply(this, arguments));
+	  }
+
+	  _createClass(Navitem, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'li',
+	        null,
+	        _react2.default.createElement(
+	          _reactRouter.IndexLink,
+	          {
+	            activeClassName: _NavBar2.default.active,
+	            to: this.props.to
+	          },
+	          this.props.label,
+	          _react2.default.createElement('div', { className: _NavBar2.default.activeItemIndicator })
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Navitem;
+	}(_react.Component);
+
+	Navitem.propTypes = {
+	  to: _react.PropTypes.string,
+	  label: _react.PropTypes.string
+	};
+	exports.default = Navitem;
+
+/***/ },
+/* 227 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.GithubLogo = exports.RefreshIcon = undefined;
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _SVGButton = __webpack_require__(228);
+
+	var _SVGButton2 = _interopRequireDefault(_SVGButton);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/* eslint-disable max-len */
+
+	/* source: https://github.com/gilbarbara/logos */
+	var GithubLogo = function GithubLogo() {
+	  return _react2.default.createElement(
+	    'svg',
+	    { width: '32px', height: '32px', viewBox: '0 0 256 250', preserveAspectRatio: 'xMidYMid', className: _SVGButton2.default.SVGButton },
+	    _react2.default.createElement(
+	      'g',
+	      null,
+	      _react2.default.createElement('path', { d: 'M128.00106,0 C57.3172926,0 0,57.3066942 0,128.00106 C0,184.555281 36.6761997,232.535542 87.534937,249.460899 C93.9320223,250.645779 96.280588,246.684165 96.280588,243.303333 C96.280588,240.251045 96.1618878,230.167899 96.106777,219.472176 C60.4967585,227.215235 52.9826207,204.369712 52.9826207,204.369712 C47.1599584,189.574598 38.770408,185.640538 38.770408,185.640538 C27.1568785,177.696113 39.6458206,177.859325 39.6458206,177.859325 C52.4993419,178.762293 59.267365,191.04987 59.267365,191.04987 C70.6837675,210.618423 89.2115753,204.961093 96.5158685,201.690482 C97.6647155,193.417512 100.981959,187.77078 104.642583,184.574357 C76.211799,181.33766 46.324819,170.362144 46.324819,121.315702 C46.324819,107.340889 51.3250588,95.9223682 59.5132437,86.9583937 C58.1842268,83.7344152 53.8029229,70.715562 60.7532354,53.0843636 C60.7532354,53.0843636 71.5019501,49.6441813 95.9626412,66.2049595 C106.172967,63.368876 117.123047,61.9465949 128.00106,61.8978432 C138.879073,61.9465949 149.837632,63.368876 160.067033,66.2049595 C184.49805,49.6441813 195.231926,53.0843636 195.231926,53.0843636 C202.199197,70.715562 197.815773,83.7344152 196.486756,86.9583937 C204.694018,95.9223682 209.660343,107.340889 209.660343,121.315702 C209.660343,170.478725 179.716133,181.303747 151.213281,184.472614 C155.80443,188.444828 159.895342,196.234518 159.895342,208.176593 C159.895342,225.303317 159.746968,239.087361 159.746968,243.303333 C159.746968,246.709601 162.05102,250.70089 168.53925,249.443941 C219.370432,232.499507 256,184.536204 256,128.00106 C256,57.3066942 198.691187,0 128.00106,0 Z M47.9405593,182.340212 C47.6586465,182.976105 46.6581745,183.166873 45.7467277,182.730227 C44.8183235,182.312656 44.2968914,181.445722 44.5978808,180.80771 C44.8734344,180.152739 45.876026,179.97045 46.8023103,180.409216 C47.7328342,180.826786 48.2627451,181.702199 47.9405593,182.340212 Z M54.2367892,187.958254 C53.6263318,188.524199 52.4329723,188.261363 51.6232682,187.366874 C50.7860088,186.474504 50.6291553,185.281144 51.2480912,184.70672 C51.8776254,184.140775 53.0349512,184.405731 53.8743302,185.298101 C54.7115892,186.201069 54.8748019,187.38595 54.2367892,187.958254 Z M58.5562413,195.146347 C57.7719732,195.691096 56.4895886,195.180261 55.6968417,194.042013 C54.9125733,192.903764 54.9125733,191.538713 55.713799,190.991845 C56.5086651,190.444977 57.7719732,190.936735 58.5753181,192.066505 C59.3574669,193.22383 59.3574669,194.58888 58.5562413,195.146347 Z M65.8613592,203.471174 C65.1597571,204.244846 63.6654083,204.03712 62.5716717,202.981538 C61.4524999,201.94927 61.1409122,200.484596 61.8446341,199.710926 C62.5547146,198.935137 64.0575422,199.15346 65.1597571,200.200564 C66.2704506,201.230712 66.6095936,202.705984 65.8613592,203.471174 Z M75.3025151,206.281542 C74.9930474,207.284134 73.553809,207.739857 72.1039724,207.313809 C70.6562556,206.875043 69.7087748,205.700761 70.0012857,204.687571 C70.302275,203.678621 71.7478721,203.20382 73.2083069,203.659543 C74.6539041,204.09619 75.6035048,205.261994 75.3025151,206.281542 Z M86.046947,207.473627 C86.0829806,208.529209 84.8535871,209.404622 83.3316829,209.4237 C81.8013,209.457614 80.563428,208.603398 80.5464708,207.564772 C80.5464708,206.498591 81.7483088,205.631657 83.2786917,205.606221 C84.8005962,205.576546 86.046947,206.424403 86.046947,207.473627 Z M96.6021471,207.069023 C96.7844366,208.099171 95.7267341,209.156872 94.215428,209.438785 C92.7295577,209.710099 91.3539086,209.074206 91.1652603,208.052538 C90.9808515,206.996955 92.0576306,205.939253 93.5413813,205.66582 C95.054807,205.402984 96.4092596,206.021919 96.6021471,207.069023 Z', fill: '#161614' })
+	    )
+	  );
+	};
+
+	/**
+	 *  source: https://github.com/google/material-design-icons
+	 *  by google
+	 *  licensed under CC BY 4.0 https://creativecommons.org/licenses/by/4.0/
+	 */
+	var RefreshIcon = function RefreshIcon() {
+	  return _react2.default.createElement(
+	    'svg',
+	    { width: '36px', height: '36px', viewBox: '0 0 36 36', className: _SVGButton2.default.SVGButton },
+	    _react2.default.createElement('path', { d: 'M26.47 9.53C24.3 7.35 21.32 6 18 6 11.37 6 6 11.37 6 18s5.37 12 12 12c5.94 0 10.85-4.33 11.81-10h-3.04c-.91 4.01-4.49 7-8.77 7-4.97 0-9-4.03-9-9s4.03-9 9-9c2.49 0 4.71 1.03 6.34 2.66L20 16h10V6l-3.53 3.53z' })
+	  );
+	};
+
+	exports.default = { GithubLogo: GithubLogo, RefreshIcon: RefreshIcon };
+	exports.RefreshIcon = RefreshIcon;
+	exports.GithubLogo = GithubLogo;
+
+/***/ },
+/* 228 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(229);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(221)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js?modules&localIdentName=[name]__[local]___[hash:base64:5]!./SVGButton.css", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js?modules&localIdentName=[name]__[local]___[hash:base64:5]!./SVGButton.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 229 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(220)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".SVGButton__SVGButton___1hVsI path {\n  fill: #50514F;\n}\n.SVGButton__SVGButton___1hVsI:hover path {\n  fill: #247BA0;\n  transition: all 0.3s;\n}\n", ""]);
+
+	// exports
+	exports.locals = {
+		"SVGButton": "SVGButton__SVGButton___1hVsI"
+	};
+
+/***/ },
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25077,7 +25341,7 @@
 	exports.default = noMatch;
 
 /***/ },
-/* 225 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25092,7 +25356,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _VideoCover = __webpack_require__(226);
+	var _VideoCover = __webpack_require__(232);
 
 	var _VideoCover2 = _interopRequireDefault(_VideoCover);
 
@@ -25154,7 +25418,7 @@
 	exports.default = MinimalCoverExample;
 
 /***/ },
-/* 226 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25171,7 +25435,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _VideoCoverFallback = __webpack_require__(227);
+	var _VideoCoverFallback = __webpack_require__(233);
 
 	var _VideoCoverFallback2 = _interopRequireDefault(_VideoCoverFallback);
 
@@ -25280,7 +25544,7 @@
 	exports.default = VideoCover;
 
 /***/ },
-/* 227 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25323,13 +25587,11 @@
 	      innerRatio: undefined,
 	      outerRatio: undefined
 	    }, _this.updateContainerRatio = function () {
-	      var ref = arguments.length <= 0 || arguments[0] === undefined ? _this.containerRef : arguments[0];
+	      if (_this.containerRef) {
+	        var _this$containerRef$ge = _this.containerRef.getBoundingClientRect();
 
-	      if (ref) {
-	        var _ref$getBoundingClien = ref.getBoundingClientRect();
-
-	        var width = _ref$getBoundingClien.width;
-	        var height = _ref$getBoundingClien.height;
+	        var width = _this$containerRef$ge.width;
+	        var height = _this$containerRef$ge.height;
 
 	        _this.setState({
 	          outerRatio: width / height
@@ -25378,6 +25640,14 @@
 	    }
 	  }, {
 	    key: 'render',
+
+
+	    /**
+	     * We can get the width and height of a video after it has started loading.
+	     * Then we can compare the aspect ratio of the video to that of it's surrounding container.
+	     * That is all we need to determine if the video fills the container vertically or horizontally.
+	     * In the other dimension we just have to maintain the original aspect-ratio.
+	     */
 	    value: function render() {
 	      var _this2 = this;
 
@@ -25442,7 +25712,7 @@
 	exports.default = VideoCoverFallback;
 
 /***/ },
-/* 228 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25457,7 +25727,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _VideoCover = __webpack_require__(226);
+	var _VideoCover = __webpack_require__(232);
 
 	var _VideoCover2 = _interopRequireDefault(_VideoCover);
 
@@ -25465,22 +25735,21 @@
 
 	var _styles2 = _interopRequireDefault(_styles);
 
+	var _Icons = __webpack_require__(227);
+
+	var _classnames = __webpack_require__(235);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var style = {
-	  width: 100,
-	  height: 100,
-	  background: 'teal',
-	  padding: 10,
-	  resize: 'both',
-	  overflow: 'hidden'
-	};
 
 	var CoverExample = function (_Component) {
 	  _inherits(CoverExample, _Component);
@@ -25498,7 +25767,8 @@
 
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(CoverExample)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
 	      forceFallback: false,
-	      remeasureOnWindowResize: false
+	      remeasureOnWindowResize: false,
+	      isResizing: false
 	    }, _this.resizeNotifier = function () {}, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 
@@ -25508,7 +25778,7 @@
 	      var _this2 = this;
 
 	      var videoOptions = {
-	        src: 'http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4',
+	        src: 'http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4#t=5',
 	        ref: function ref(videoRef) {
 	          _this2.videoRef = videoRef;
 	        },
@@ -25530,24 +25800,6 @@
 	          { className: _styles2.default.Input },
 	          _react2.default.createElement('input', {
 	            type: 'checkbox',
-	            checked: this.state.remeasureOnWindowResize,
-	            onClick: function onClick() {
-	              _this2.setState({
-	                remeasureOnWindowResize: !_this2.state.remeasureOnWindowResize
-	              });
-	            }
-	          }),
-	          _react2.default.createElement(
-	            'span',
-	            null,
-	            'Remeasure on window resize'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: _styles2.default.Input },
-	          _react2.default.createElement('input', {
-	            type: 'checkbox',
 	            checked: this.state.forceFallback,
 	            onClick: function onClick() {
 	              _this2.setState({
@@ -25564,7 +25816,42 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: _styles2.default.Input },
-	          _react2.default.createElement('input', { type: 'button', value: 'resize', onClick: this.resizeNotifier }),
+	          _react2.default.createElement('input', {
+	            type: 'checkbox',
+	            checked: this.state.remeasureOnWindowResize,
+	            onClick: function onClick() {
+	              _this2.setState({
+	                remeasureOnWindowResize: !_this2.state.remeasureOnWindowResize
+	              });
+	            }
+	          }),
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            'Remeasure on window resize'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: _styles2.default.Input },
+	          _react2.default.createElement(
+	            'div',
+	            {
+	              className: (0, _classnames2.default)(_styles2.default.RefreshIcon, _defineProperty({}, _styles2.default.active, this.state.isResizing)),
+	              onClick: function onClick() {
+	                // isResizing will set 'active' classname, which starts rotate-animation
+	                _this2.setState({ isResizing: true });
+	                // then reset classname after animation has ended
+	                // i know, this is not great but it works pretty good
+	                // TODO: use animationend event
+	                setTimeout(function () {
+	                  return _this2.setState({ isResizing: false });
+	                }, 400);
+	                _this2.resizeNotifier();
+	              }
+	            },
+	            _react2.default.createElement(_Icons.RefreshIcon, null)
+	          ),
 	          _react2.default.createElement(
 	            'span',
 	            null,
@@ -25578,7 +25865,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { style: style },
+	          { className: _styles2.default.ResizableBox },
 	          _react2.default.createElement(
 	            'div',
 	            {
@@ -25592,10 +25879,10 @@
 	              videoOptions: videoOptions,
 	              forceFallback: this.state.forceFallback,
 	              remeasureOnWindowResize: this.state.remeasureOnWindowResize,
-	              onFallbackMounted: function onFallbackMounted(resizeNotifier) {
+	              onFallbackDidMount: function onFallbackDidMount(resizeNotifier) {
 	                _this2.resizeNotifier = resizeNotifier;
 	              },
-	              onFallbackUnmounted: function onFallbackUnmounted() {
+	              onFallbackWillUnmount: function onFallbackWillUnmount() {
 	                _this2.resizeNotifier = function () {};
 	              }
 	            })
@@ -25611,7 +25898,61 @@
 	exports.default = CoverExample;
 
 /***/ },
-/* 229 */
+/* 235 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	  Copyright (c) 2016 Jed Watson.
+	  Licensed under the MIT License (MIT), see
+	  http://jedwatson.github.io/classnames
+	*/
+	/* global define */
+
+	(function () {
+		'use strict';
+
+		var hasOwn = {}.hasOwnProperty;
+
+		function classNames () {
+			var classes = [];
+
+			for (var i = 0; i < arguments.length; i++) {
+				var arg = arguments[i];
+				if (!arg) continue;
+
+				var argType = typeof arg;
+
+				if (argType === 'string' || argType === 'number') {
+					classes.push(arg);
+				} else if (Array.isArray(arg)) {
+					classes.push(classNames.apply(null, arg));
+				} else if (argType === 'object') {
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes.push(key);
+						}
+					}
+				}
+			}
+
+			return classes.join(' ');
+		}
+
+		if (typeof module !== 'undefined' && module.exports) {
+			module.exports = classNames;
+		} else if (true) {
+			// register as 'classnames', consistent with npm package name
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+				return classNames;
+			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else {
+			window.classNames = classNames;
+		}
+	}());
+
+
+/***/ },
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25626,7 +25967,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _VideoCover = __webpack_require__(226);
+	var _VideoCover = __webpack_require__(232);
 
 	var _VideoCover2 = _interopRequireDefault(_VideoCover);
 
@@ -25696,6 +26037,120 @@
 	}(_react.Component);
 
 	exports.default = CoverExample;
+
+/***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _styles = __webpack_require__(218);
+
+	var _styles2 = _interopRequireDefault(_styles);
+
+	var _reactRouter = __webpack_require__(155);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Home = function (_Component) {
+	  _inherits(Home, _Component);
+
+	  function Home() {
+	    _classCallCheck(this, Home);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Home).apply(this, arguments));
+	  }
+
+	  _createClass(Home, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: _styles2.default.Home },
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'What is this? '
+	        ),
+	        'A small React component rendering a video with object-fit: cover, or a fallback if object-fit is not available. This is not a polyfill, it just creates a similar effect and it only works for videos.',
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          ' Why? '
+	        ),
+	        'There are existing object-fit polyfills:',
+	        _react2.default.createElement(
+	          'ul',
+	          null,
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'https://github.com/jonathantneal/fitie' },
+	              ' fitie '
+	            ),
+	            ' by Jonathan Neal '
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'https://github.com/anselmh/object-fit' },
+	              ' object-fit '
+	            ),
+	            ' by Anselm Hanneman '
+	          )
+	        ),
+	        'You should check them out. In comparison this component gives you a lot of control and probably works better in the context of a React application.',
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'How does it work?'
+	        ),
+	        'You should have a look at the ',
+	        _react2.default.createElement(
+	          'a',
+	          { href: 'https://github.com/t-obi/react-video-cover/blob/master/README.md' },
+	          'readme'
+	        ),
+	        ' and the ',
+	        _react2.default.createElement(
+	          _reactRouter.IndexLink,
+	          { to: '/resizable' },
+	          'examples'
+	        ),
+	        '. I also encourage you to have a look at the code, it should be relatively easy to understand.',
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          'If you have any questions or spot an error I would be glad to help.'
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Home;
+	}(_react.Component);
+
+	exports.default = Home;
 
 /***/ }
 /******/ ]);
