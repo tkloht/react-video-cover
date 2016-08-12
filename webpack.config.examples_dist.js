@@ -6,7 +6,7 @@ const ROOT_PATH = path.resolve(__dirname);
 const EXAMPLES_PATH = path.resolve(ROOT_PATH, 'examples');
 const LIB_PATH = path.resolve(ROOT_PATH, 'lib');
 
-const PUBLIC_PATH = '/';
+const PUBLIC_PATH = '/react-video-cover';
 
 const CONFIG_EXAMPLE_DIST = {
   resolve: {
