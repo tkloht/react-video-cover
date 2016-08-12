@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import css from './NavBar.css';
-
 import { IndexLink } from 'react-router';
+import css from './NavBar.css';
 
 class Navitem extends Component {
 
