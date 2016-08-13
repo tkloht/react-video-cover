@@ -38,13 +38,11 @@ var VideoCoverFallback = function (_Component) {
       innerRatio: undefined,
       outerRatio: undefined
     }, _this.updateContainerRatio = function () {
-      var ref = arguments.length <= 0 || arguments[0] === undefined ? _this.containerRef : arguments[0];
+      if (_this.containerRef) {
+        var _this$containerRef$ge = _this.containerRef.getBoundingClientRect();
 
-      if (ref) {
-        var _ref$getBoundingClien = ref.getBoundingClientRect();
-
-        var width = _ref$getBoundingClien.width;
-        var height = _ref$getBoundingClien.height;
+        var width = _this$containerRef$ge.width;
+        var height = _this$containerRef$ge.height;
 
         _this.setState({
           outerRatio: width / height
@@ -93,6 +91,14 @@ var VideoCoverFallback = function (_Component) {
     }
   }, {
     key: 'render',
+
+
+    /**
+     * We can get the width and height of a video after it has started loading.
+     * Then we can compare the aspect ratio of the video to that of it's surrounding container.
+     * That is all we need to determine if the video fills the container vertically or horizontally.
+     * In the other dimension we just have to maintain the original aspect-ratio.
+     */
     value: function render() {
       var _this2 = this;
 

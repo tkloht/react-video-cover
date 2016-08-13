@@ -34,7 +34,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * IF YOU DO NOT HAVE TO SUPPORT IE, you probably do not need this component
  * just have a look at the styles for the non-fallback implementation
  */
-
 var VideoCover = function (_Component) {
   _inherits(VideoCover, _Component);
 
