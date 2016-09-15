@@ -44,7 +44,7 @@
     "body-parser": "1.15.2",
     "bundle-loader": "0.5.4",
     "chai": "3.5.0",
-    "chai-enzyme": "0.5.0",
+    "chai-enzyme": "0.5.1",
     "classnames": "2.2.5",
     "css-loader": "0.23.1",
     "dirty-chai": "1.2.2",
