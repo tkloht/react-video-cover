@@ -40,7 +40,7 @@ var VideoCover = function (_Component) {
   function VideoCover() {
     _classCallCheck(this, VideoCover);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(VideoCover).apply(this, arguments));
+    return _possibleConstructorReturn(this, (VideoCover.__proto__ || Object.getPrototypeOf(VideoCover)).apply(this, arguments));
   }
 
   _createClass(VideoCover, [{
