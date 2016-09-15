@@ -81,10 +81,7 @@ class CoverExample extends Component {
           </span>
         </div>
         <div>
-          The box below should be resizable on the bottom right corner.
-          However, this does not work in IE unfortunately.
-          If you are looking at this page in IE I you could check out the second example,
-          which allows you to see the same effect by resizing your browser window.
+          The box below is resizable on the bottom right corner.
         </div>
         <Resize className={css.ResizableBox} handleColor="#50514F">
           <div
