@@ -27212,6 +27212,10 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
+	var _reactSimpleResize = __webpack_require__(248);
+
+	var _reactSimpleResize2 = _interopRequireDefault(_reactSimpleResize);
+
 	var _VideoCover = __webpack_require__(244);
 
 	var _VideoCover2 = _interopRequireDefault(_VideoCover);
@@ -27221,10 +27225,6 @@
 	var _styles2 = _interopRequireDefault(_styles);
 
 	var _Icons = __webpack_require__(237);
-
-	var _reactSimpleResize = __webpack_require__(248);
-
-	var _reactSimpleResize2 = _interopRequireDefault(_reactSimpleResize);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27346,7 +27346,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          null,
-	          'The box below should be resizable on the bottom right corner. However, this does not work in IE unfortunately. If you are looking at this page in IE I you could check out the second example, which allows you to see the same effect by resizing your browser window.'
+	          'The box below is resizable on the bottom right corner.'
 	        ),
 	        _react2.default.createElement(
 	          _reactSimpleResize2.default,
