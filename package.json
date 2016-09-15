@@ -2,6 +2,7 @@
   "name": "react-video-cover",
   "version": "1.0.1",
   "description": "displays video with object-fit: cover, with fallback for IE",
+  "keywords": ["react", "component", "object-fit", "cover", "video"],
   "homepage": "http://t-obi.github.io/react-video-cover/",
   "bugs": "https://github.com/t-obi/react-video-cover/issues",
   "repository": "github:t-obi/react-video-cover",
