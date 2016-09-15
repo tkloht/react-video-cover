@@ -3,6 +3,7 @@ import cx from 'classnames';
 import Cover from '../lib/VideoCover';
 import css from './styles.css';
 import { RefreshIcon } from './Icons';
+import Resize from 'react-simple-resize';
 
 class CoverExample extends Component {
 
@@ -84,7 +85,7 @@ class CoverExample extends Component {
           If you are looking at this page in IE I you could check out the second example,
           which allows you to see the same effect by resizing your browser window.
         </div>
-        <div className={css.ResizableBox} >
+        <Resize className={css.ResizableBox} handleColor="#50514F">
           <div
             style={{
               overflow: 'hidden',
@@ -105,7 +106,7 @@ class CoverExample extends Component {
             />
           </div>
 
-        </div>
+        </Resize>
       </div>
     );
   }
