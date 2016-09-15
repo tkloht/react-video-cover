@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
+import Resize from 'react-simple-resize';
+
 import Cover from '../lib/VideoCover';
 import css from './styles.css';
 import { RefreshIcon } from './Icons';
-import Resize from 'react-simple-resize';
 
 class CoverExample extends Component {
 
