@@ -46,7 +46,7 @@
     "chai": "3.5.0",
     "chai-enzyme": "0.5.1",
     "classnames": "2.2.5",
-    "css-loader": "0.23.1",
+    "css-loader": "0.25.0",
     "dirty-chai": "1.2.2",
     "enzyme": "2.4.1",
     "eslint": "3.5.0",
