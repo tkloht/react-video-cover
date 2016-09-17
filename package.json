@@ -71,7 +71,7 @@
     "react": "15.3.1",
     "react-addons-test-utils": "15.3.0",
     "react-dom": "15.3.0",
-    "react-simple-resize": "1.0.0",
+    "react-simple-resize": "1.0.2",
     "react-router": "2.6.1",
     "react-transform-catch-errors": "1.0.2",
     "react-transform-hmr": "1.0.4",
