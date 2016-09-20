@@ -68,7 +68,7 @@
     "karma-webpack": "1.8.0",
     "mocha": "3.0.2",
     "phantomjs-prebuilt": "2.1.12",
-    "react": "15.3.1",
+    "react": "15.3.2",
     "react-addons-test-utils": "15.3.0",
     "react-dom": "15.3.0",
     "react-simple-resize": "1.0.0",
