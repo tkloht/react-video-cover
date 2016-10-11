@@ -17,6 +17,7 @@
     "build-examples": "react-component-scripts build-examples",
     "build": "babel lib --out-dir dist",
     "test": "react-component-scripts test",
+    "test:watch": "react-component-scripts test --watch",
     "eslint": "eslint lib examples",
     "eslint-fix": "eslint --fix lib examples",
     "gh-pages": "git subtree push --prefix dist_examples origin gh-pages",
