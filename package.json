@@ -38,7 +38,7 @@
     "react": "^0.14.0 || ^15.0.0"
   },
   "devDependencies": {
-    "@tkloht/react-component-scripts": "1.4.0",
+    "@tkloht/react-component-scripts": "~1.4.0",
     "classnames": "2.2.5",
     "eslint": "3.5.0",
     "eslint-config-airbnb": "10.0.1",
