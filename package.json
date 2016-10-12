@@ -14,8 +14,7 @@
   "repository": "github:t-obi/react-video-cover",
   "scripts": {
     "start": "react-component-scripts start",
-    "build-examples": "react-component-scripts build-examples",
-    "build": "babel lib --out-dir dist",
+    "build": "react-component-scripts build",
     "test": "react-component-scripts test",
     "test:watch": "react-component-scripts test --watch",
     "eslint": "eslint lib examples",
