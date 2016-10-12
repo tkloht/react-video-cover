@@ -37,7 +37,7 @@
     "react": "^0.14.0 || ^15.0.0"
   },
   "devDependencies": {
-    "@tkloht/react-component-scripts": "1.6.0",
+    "@tkloht/react-component-scripts": "1.7.0",
     "classnames": "2.2.5",
     "react": "~15.3.2",
     "react-addons-test-utils": "15.3.0",
