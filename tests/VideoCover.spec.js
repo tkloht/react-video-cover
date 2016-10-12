@@ -1,5 +1,5 @@
 /* eslint-env mocha*/
-import VideoCover from '../lib/VideoCover';
+import VideoCover from '../lib';
 import VideoCoverFallback from '../lib/VideoCoverFallback';
 
 import React from 'react';
