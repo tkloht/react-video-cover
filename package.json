@@ -26,13 +26,13 @@
   "author": "Tobias Kloht",
   "license": "MIT",
   "files": [
-    "dist"
+    "dist/lib"
   ],
   "directories": {
     "lib": "./lib",
     "example": "./examples"
   },
-  "main": "dist/VideoCover",
+  "main": "dist/lib/index.js",
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0"
   },
