@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Cover from '../lib/VideoCover';
+import Cover from '../lib';
 
 const style = {
   width: '100vw',

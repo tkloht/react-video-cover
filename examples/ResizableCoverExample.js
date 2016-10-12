@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import cx from 'classnames';
 import Resize from 'react-simple-resize';
 
-import Cover from '../lib/VideoCover';
+import Cover from '../lib';
 import css from './styles.css';
 import { RefreshIcon } from './Icons';
 
