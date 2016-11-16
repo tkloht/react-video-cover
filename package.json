@@ -41,7 +41,7 @@
     "classnames": "2.2.5",
     "react": "~15.3.2",
     "react-addons-test-utils": "15.3.0",
-    "react-dom": "15.3.2",
+    "react-dom": "15.4.0",
     "react-router": "2.6.1",
     "react-simple-resize": "2.0.0"
   }
