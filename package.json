@@ -39,7 +39,7 @@
   "devDependencies": {
     "@tkloht/react-component-scripts": "1.7.0",
     "classnames": "2.2.5",
-    "react": "~15.3.2",
+    "react": "~15.5.0",
     "react-addons-test-utils": "15.3.0",
     "react-dom": "15.3.2",
     "react-router": "2.6.1",
