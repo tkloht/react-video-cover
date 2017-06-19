@@ -8,13 +8,13 @@ import BackgroundExample from './BackgroundCoverExample';
 import Home from './Home';
 
 export default () => (
-	<App>
-  	<Switch>
-	    <Route exact path="/" component={Home} />
-      <Route path="/resizable" component={ResizableExample} />
-      <Route path="/background" component={BackgroundExample} />
-      <Route path="/minimal" component={MinimalExample} />
-	    <Route status={404} component={NoMatch} />
-	  </Switch>
-	</App>
+    <App>
+        <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/resizable" component={ResizableExample} />
+            <Route path="/background" component={BackgroundExample} />
+            <Route path="/minimal" component={MinimalExample} />
+            <Route status={404} component={NoMatch} />
+        </Switch>
+    </App>
 );
