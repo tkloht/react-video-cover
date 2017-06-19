@@ -2,7 +2,7 @@
 A small React component rendering a `<video/>` with `object-fit: cover`, or a Fallback if object-fit is not available.
 
 ## Demo
-[http://t-obi.github.io/react-video-cover](http://t-obi.github.io/react-video-cover)
+[http://tkloht.github.io/react-video-cover](http://tkloht.github.io/react-video-cover)
 
 ## Installation
 ```shell

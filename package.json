@@ -9,9 +9,9 @@
     "cover",
     "video"
   ],
-  "homepage": "http://t-obi.github.io/react-video-cover/",
-  "bugs": "https://github.com/t-obi/react-video-cover/issues",
-  "repository": "github:t-obi/react-video-cover",
+  "homepage": "http://tkloht.github.io/react-video-cover/",
+  "bugs": "https://github.com/tkloht/react-video-cover/issues",
+  "repository": "github:tkloht/react-video-cover",
   "scripts": {
     "start": "react-component-scripts start",
     "build": "react-component-scripts build",
