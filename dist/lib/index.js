@@ -75,7 +75,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _VideoCoverFallback = __webpack_require__(3);
+	var _propTypes = __webpack_require__(3);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
+	var _VideoCoverFallback = __webpack_require__(8);
 
 	var _VideoCoverFallback2 = _interopRequireDefault(_VideoCoverFallback);
 
@@ -136,7 +140,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * but apart from that you should not use it.
 	   * default: false
 	   */
-	  forceFallback: _react.PropTypes.bool,
+	  forceFallback: _propTypes2.default.bool,
 	  /**
 	   * If set, an event listener on window-resize is added when the Fallback is used.
 	   * It will re-evaluate the aspect-ratio and update the styles if necessary.
@@ -146,7 +150,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * please see the onFallbackDidMount prop.
 	   * default: false
 	   */
-	  remeasureOnWindowResize: _react.PropTypes.bool,
+	  remeasureOnWindowResize: _propTypes2.default.bool,
 	  /**
 	   * Will be executed when the Fallback is mounted.
 	   * The only parameter is a function, which can be used to force a re-measuring,
@@ -154,27 +158,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * Please note that this will only be invoked if the fallback is used, that is in IE.
 	   * See ResizableCoverExample for an example implementation.
 	   */
-	  onFallbackDidMount: _react.PropTypes.func,
+	  onFallbackDidMount: _propTypes2.default.func,
 	  /**
 	   * Will be executed before the Fallback unmounts.
 	   * You probably want to use this to clear any event-listeners added in onFallbackDidMount.
 	   */
-	  onFallbackWillUnmount: _react.PropTypes.func,
+	  onFallbackWillUnmount: _propTypes2.default.func,
 	  /**
 	   * All members of videoOptions will be passed as props to the <video/>.
 	   */
-	  videoOptions: _react.PropTypes.object,
+	  videoOptions: _propTypes2.default.object,
 	  /**
 	   * Additional styles which will be merged with those defined by this component.
 	   * Please note that some styles are not possible to override, in particular:
 	   *   - object-fit: cover (when the fallback is not used)
 	   *   - position: relative and overflow: hidden (when the fallback is used)
 	   */
-	  style: _react.PropTypes.object,
+	  style: _propTypes2.default.object,
 	  /**
 	   * Use this to set a custom className.
 	   */
-	  className: _react.PropTypes.string
+	  className: _propTypes2.default.string
 	};
 	VideoCover.defaultProps = {
 	  forceFallback: false,
@@ -194,6 +198,221 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	/**
+	 * Copyright 2013-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 */
+
+	if (false) {
+	  var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol.for && Symbol.for('react.element') || 0xeac7;
+
+	  var isValidElement = function isValidElement(object) {
+	    return (typeof object === 'undefined' ? 'undefined' : _typeof(object)) === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+	  };
+
+	  // By explicitly using `prop-types` you are opting into new development behavior.
+	  // http://fb.me/prop-types-in-prod
+	  var throwOnDirectAccess = true;
+	  module.exports = require('./factoryWithTypeCheckers')(isValidElement, throwOnDirectAccess);
+	} else {
+	  // By explicitly using `prop-types` you are opting into new production behavior.
+	  // http://fb.me/prop-types-in-prod
+	  module.exports = __webpack_require__(4)();
+	}
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 */
+
+	'use strict';
+
+	var emptyFunction = __webpack_require__(5);
+	var invariant = __webpack_require__(6);
+	var ReactPropTypesSecret = __webpack_require__(7);
+
+	module.exports = function () {
+	  function shim(props, propName, componentName, location, propFullName, secret) {
+	    if (secret === ReactPropTypesSecret) {
+	      // It is still safe when called from React.
+	      return;
+	    }
+	    invariant(false, 'Calling PropTypes validators directly is not supported by the `prop-types` package. ' + 'Use PropTypes.checkPropTypes() to call them. ' + 'Read more at http://fb.me/use-check-prop-types');
+	  };
+	  shim.isRequired = shim;
+	  function getShim() {
+	    return shim;
+	  };
+	  // Important!
+	  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
+	  var ReactPropTypes = {
+	    array: shim,
+	    bool: shim,
+	    func: shim,
+	    number: shim,
+	    object: shim,
+	    string: shim,
+	    symbol: shim,
+
+	    any: shim,
+	    arrayOf: getShim,
+	    element: shim,
+	    instanceOf: getShim,
+	    node: shim,
+	    objectOf: getShim,
+	    oneOf: getShim,
+	    oneOfType: getShim,
+	    shape: getShim
+	  };
+
+	  ReactPropTypes.checkPropTypes = emptyFunction;
+	  ReactPropTypes.PropTypes = ReactPropTypes;
+
+	  return ReactPropTypes;
+	};
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * 
+	 */
+
+	function makeEmptyFunction(arg) {
+	  return function () {
+	    return arg;
+	  };
+	}
+
+	/**
+	 * This function accepts and discards inputs; it has no side effects. This is
+	 * primarily useful idiomatically for overridable function endpoints which
+	 * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+	 */
+	var emptyFunction = function emptyFunction() {};
+
+	emptyFunction.thatReturns = makeEmptyFunction;
+	emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
+	emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
+	emptyFunction.thatReturnsNull = makeEmptyFunction(null);
+	emptyFunction.thatReturnsThis = function () {
+	  return this;
+	};
+	emptyFunction.thatReturnsArgument = function (arg) {
+	  return arg;
+	};
+
+	module.exports = emptyFunction;
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 */
+
+	'use strict';
+
+	/**
+	 * Use invariant() to assert state which your program assumes to be true.
+	 *
+	 * Provide sprintf-style format (only %s is supported) and arguments
+	 * to provide information about what broke and what you were
+	 * expecting.
+	 *
+	 * The invariant message will be stripped in production, but the invariant
+	 * will remain to ensure logic does not differ in production.
+	 */
+
+	var validateFormat = function validateFormat(format) {};
+
+	if (false) {
+	  validateFormat = function validateFormat(format) {
+	    if (format === undefined) {
+	      throw new Error('invariant requires an error message argument');
+	    }
+	  };
+	}
+
+	function invariant(condition, format, a, b, c, d, e, f) {
+	  validateFormat(format);
+
+	  if (!condition) {
+	    var error;
+	    if (format === undefined) {
+	      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
+	    } else {
+	      var args = [a, b, c, d, e, f];
+	      var argIndex = 0;
+	      error = new Error(format.replace(/%s/g, function () {
+	        return args[argIndex++];
+	      }));
+	      error.name = 'Invariant Violation';
+	    }
+
+	    error.framesToPop = 1; // we don't care about invariant's own frame
+	    throw error;
+	  }
+	}
+
+	module.exports = invariant;
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	/**
+	 * Copyright 2013-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 */
+
+	'use strict';
+
+	var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+
+	module.exports = ReactPropTypesSecret;
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
@@ -205,6 +424,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _propTypes = __webpack_require__(3);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -233,10 +456,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      outerRatio: undefined
 	    }, _this.updateContainerRatio = function () {
 	      if (_this.containerRef) {
-	        var _this$containerRef$ge = _this.containerRef.getBoundingClientRect();
-
-	        var width = _this$containerRef$ge.width;
-	        var height = _this$containerRef$ge.height;
+	        var _this$containerRef$ge = _this.containerRef.getBoundingClientRect(),
+	            width = _this$containerRef$ge.width,
+	            height = _this$containerRef$ge.height;
 
 	        _this.setState({
 	          outerRatio: width / height
@@ -296,9 +518,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function render() {
 	      var _this2 = this;
 
-	      var _state = this.state;
-	      var innerRatio = _state.innerRatio;
-	      var outerRatio = _state.outerRatio;
+	      var _state = this.state,
+	          innerRatio = _state.innerRatio,
+	          outerRatio = _state.outerRatio;
 
 	      var style = {
 	        width: innerRatio > outerRatio ? 'auto' : '100%',
@@ -346,13 +568,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	}(_react.Component);
 
 	VideoCoverFallback.propTypes = {
-	  style: _react.PropTypes.object,
-	  onFallbackDidMount: _react.PropTypes.func,
-	  onFallbackWillUnmount: _react.PropTypes.func,
-	  videoOptions: _react.PropTypes.object,
-	  forceFallback: _react.PropTypes.bool,
-	  remeasureOnWindowResize: _react.PropTypes.bool,
-	  className: _react.PropTypes.string
+	  style: _propTypes2.default.object,
+	  onFallbackDidMount: _propTypes2.default.func,
+	  onFallbackWillUnmount: _propTypes2.default.func,
+	  videoOptions: _propTypes2.default.object,
+	  forceFallback: _propTypes2.default.bool,
+	  remeasureOnWindowResize: _propTypes2.default.bool,
+	  className: _propTypes2.default.string
 	};
 	exports.default = VideoCoverFallback;
 
