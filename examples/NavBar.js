@@ -16,7 +16,7 @@ class NavBar extends Component {
           <NavItem to="/minimal" label="Example 3" />
         </ul>
         <div className={css.ExternalNav}>
-          <a href="http://github.com/t-obi/react-video-cover/">
+          <a href="https://github.com/tkloht/react-video-cover/">
             <GithubLogo />
           </a>
         </div>

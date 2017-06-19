@@ -16,11 +16,11 @@ const App = props => (
     <footer className={css.Footer}>
       <div>Made by Tobias Kloht</div>
       <div>
-        <a href="mailto:tobias.kloht@gmail.com">Email</a>
+        <a href="mailto:mail@kloht.com">Email</a>
         <span> - </span>
         <a href="https://www.twitter.com/tkloht">Twitter</a>
         <span> - </span>
-        <a href="https://t-obi.github.io/imprint">Imprint</a>
+        <a href="https://tkloht.github.io/imprint">Imprint</a>
       </div>
     </footer>
   </div>
