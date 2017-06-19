@@ -1,9 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, hashHistory } from 'react-router';
-import routes from './routes';
+import { HashRouter } from 'react-router-dom';
+import Routes from './routes';
 
 render(
-  <Router history={hashHistory} routes={routes} />,
+  <HashRouter>
+  	<Routes />
+  </HashRouter>,
   document.getElementById('app')
 );

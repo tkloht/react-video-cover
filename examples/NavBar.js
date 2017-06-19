@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IndexLink } from 'react-router';
+import { Link } from 'react-router-dom';
 import css from './NavBar.css';
 import NavItem from './NavItem';
 import { GithubLogo } from './Icons.js';
@@ -9,7 +9,7 @@ class NavBar extends Component {
   render() {
     return (
       <div className={css.NavBar}>
-        <h1><IndexLink to="/">react-video-cover</IndexLink></h1>
+        <h1><Link to="/">react-video-cover</Link></h1>
         <ul>
           <NavItem to="/resizable" label="Example 1" />
           <NavItem to="/background" label="Example 2" />

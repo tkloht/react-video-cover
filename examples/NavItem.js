@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { IndexLink } from 'react-router';
+import { Link } from 'react-router-dom';
 import css from './NavBar.css';
 
 class Navitem extends Component {
@@ -12,13 +12,13 @@ class Navitem extends Component {
   render() {
     return (
       <li>
-        <IndexLink
+        <Link
           activeClassName={css.active}
           to={this.props.to}
         >
           {this.props.label}
           <div className={css.activeItemIndicator} />
-        </IndexLink>
+        </Link>
       </li>
     );
   }
