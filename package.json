@@ -44,6 +44,6 @@
     "react-addons-test-utils": "~15.6.0",
     "react-dom": "~15.6.0",
     "react-router-dom": "4.1.1",
-    "react-simple-resize": "~2.0.0"
+    "react-simple-resize": "^2.1.0"
   }
 }
