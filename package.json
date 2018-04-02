@@ -15,7 +15,7 @@
   "scripts": {
     "start": "react-component-scripts start",
     "build": "react-component-scripts build",
-    "test": "react-component-scripts test",
+    "test": "jest",
     "test:watch": "react-component-scripts test --watch",
     "eslint": "eslint lib examples",
     "eslint-fix": "eslint --fix lib examples",
@@ -44,5 +44,24 @@
     "react-dom": "~16.3.0",
     "react-router-dom": "4.1.1",
     "react-simple-resize": "^2.1.0"
+  },
+  "jest": {
+    "testEnvironment": "enzyme",
+    "rootDir": "lib",
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "./__mocks__/fileMock.js",
+      "\\.(css|less|styl)$": "./__mocks__/styleMock.js"
+    },
+    "setupTestFrameworkScriptFile": "../node_modules/jest-enzyme/lib/index.js",
+    "setupFiles": [
+      "../setupTests.js"
+    ]
   }
 }
