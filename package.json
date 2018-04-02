@@ -34,7 +34,7 @@
   },
   "main": "dist/lib/index.js",
   "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0"
+    "react": ">=0.14"
   },
   "devDependencies": {
     "@tkloht/react-component-scripts": "~2.1.0",
