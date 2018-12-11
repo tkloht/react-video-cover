@@ -14,7 +14,7 @@
   "repository": "github:tkloht/react-video-cover",
   "scripts": {
     "start": "react-component-scripts start",
-    "build": "react-component-scripts build",
+    "build": "NODE_ENV=production webpack",
     "test": "jest",
     "test:watch": "react-component-scripts test --watch",
     "eslint": "eslint lib examples",
@@ -37,13 +37,13 @@
     "react": ">=0.14"
   },
   "devDependencies": {
-    "@tkloht/react-component-scripts": "~2.1.2",
     "classnames": "~2.2.5",
     "prop-types": "~15.6.1",
     "react": "~16.3.0",
     "react-dom": "~16.3.0",
     "react-router-dom": "4.2.2",
-    "react-simple-resize": "^2.1.0"
+    "react-simple-resize": "^2.1.0",
+    "webpack-cli": "3.1.2"
   },
   "jest": {
     "testEnvironment": "enzyme",
@@ -63,5 +63,16 @@
     "setupFiles": [
       "../setupTests.js"
     ]
+  },
+  "dependencies": {
+    "@babel/cli": "7.2.0",
+    "@babel/core": "7.2.0",
+    "@babel/preset-env": "7.2.0",
+    "babel-loader": "8.0.4",
+    "babel-preset-react-app": "6.1.0",
+    "enzyme": "3.7.0",
+    "jest": "23.6.0",
+    "jest-enzyme": "7.0.1",
+    "webpack": "4.27.1"
   }
 }
