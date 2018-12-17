@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("react"));
+		module.exports = factory(require("prop-types"), require("react"));
 	else if(typeof define === 'function' && define.amd)
-		define("react-video-cover", ["react"], factory);
+		define("react-video-cover", ["prop-types", "react"], factory);
 	else if(typeof exports === 'object')
-		exports["react-video-cover"] = factory(require("react"));
+		exports["react-video-cover"] = factory(require("prop-types"), require("react"));
 	else
-		root["react-video-cover"] = factory(root["react"]);
-})(window, function(__WEBPACK_EXTERNAL_MODULE__0__) {
+		root["react-video-cover"] = factory(root["prop-types"], root["react"]);
+})(window, function(__WEBPACK_EXTERNAL_MODULE__0__, __WEBPACK_EXTERNAL_MODULE__1__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -102,143 +102,49 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__0__;
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__1__;
+
+/***/ }),
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/defineProperty.js
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread.js
-
-function _objectSpread(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-    var ownKeys = Object.keys(source);
-
-    if (typeof Object.getOwnPropertySymbols === 'function') {
-      ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-      }));
-    }
-
-    ownKeys.forEach(function (key) {
-      _defineProperty(target, key, source[key]);
-    });
-  }
-
-  return target;
-}
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/createClass.js
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/typeof.js
-function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
-
-function _typeof(obj) {
-  if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
-    _typeof = function _typeof(obj) {
-      return _typeof2(obj);
-    };
-  } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof2(obj);
-    };
-  }
-
-  return _typeof(obj);
-}
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js
-
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized(self);
-}
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/inherits.js
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
 // EXTERNAL MODULE: external "react"
-var external_react_ = __webpack_require__(0);
+var external_react_ = __webpack_require__(1);
 var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
 
+// EXTERNAL MODULE: external "prop-types"
+var external_prop_types_ = __webpack_require__(0);
+var external_prop_types_default = /*#__PURE__*/__webpack_require__.n(external_prop_types_);
+
 // CONCATENATED MODULE: ./lib/VideoCoverFallback.js
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 
 
@@ -248,49 +154,20 @@ var VideoCoverFallback_VideoCoverFallback =
 function (_Component) {
   _inherits(VideoCoverFallback, _Component);
 
-  function VideoCoverFallback() {
-    var _getPrototypeOf2;
-
+  function VideoCoverFallback(props) {
     var _this;
 
     _classCallCheck(this, VideoCoverFallback);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(VideoCoverFallback)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(VideoCoverFallback).call(this, props));
     _this.state = {
       innerRatio: undefined,
       outerRatio: undefined
     };
-
-    _this.updateContainerRatio = function () {
-      if (_this.containerRef) {
-        var _this$containerRef$ge = _this.containerRef.getBoundingClientRect(),
-            width = _this$containerRef$ge.width,
-            height = _this$containerRef$ge.height;
-
-        _this.setState({
-          outerRatio: width / height
-        });
-      }
-    };
-
-    _this.updateVideoRatio = function (width, height) {
-      _this.setState({
-        innerRatio: width / height
-      });
-    };
-
-    _this.initEventListeners = function () {
-      window.addEventListener('resize', _this.updateContainerRatio);
-    };
-
-    _this.removeEventListeners = function () {
-      window.removeEventListener('resize', _this.updateContainerRatio);
-    };
-
+    _this.updateContainerRatio = _this.updateContainerRatio.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.updateVideoRatio = _this.updateVideoRatio.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.initEventListeners = _this.initEventListeners.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.removeEventListeners = _this.removeEventListeners.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -328,14 +205,44 @@ function (_Component) {
       }
     }
   }, {
-    key: "render",
+    key: "updateContainerRatio",
+    value: function updateContainerRatio() {
+      if (this.containerRef) {
+        var _this$containerRef$ge = this.containerRef.getBoundingClientRect(),
+            width = _this$containerRef$ge.width,
+            height = _this$containerRef$ge.height;
 
+        this.setState({
+          outerRatio: width / height
+        });
+      }
+    }
+  }, {
+    key: "updateVideoRatio",
+    value: function updateVideoRatio(width, height) {
+      this.setState({
+        innerRatio: width / height
+      });
+    }
+  }, {
+    key: "initEventListeners",
+    value: function initEventListeners() {
+      window.addEventListener('resize', this.updateContainerRatio);
+    }
+  }, {
+    key: "removeEventListeners",
+    value: function removeEventListeners() {
+      window.removeEventListener('resize', this.updateContainerRatio);
+    }
     /**
      * We can get the width and height of a video after it has started loading.
      * Then we can compare the aspect ratio of the video to that of it's surrounding container.
      * That is all we need to determine if the video fills the container vertically or horizontally.
      * In the other dimension we just have to maintain the original aspect-ratio.
      */
+
+  }, {
+    key: "render",
     value: function render() {
       var _this2 = this;
 
@@ -371,7 +278,7 @@ function (_Component) {
           _this2.containerRef = _ref;
         },
         className: this.props.className
-      }, external_react_default.a.createElement("video", Object.assign({
+      }, external_react_default.a.createElement("video", _extends({
         onLoadedData: function onLoadedData(event) {
           _this2.updateVideoRatio(event.target.videoWidth, event.target.videoHeight);
         },
@@ -383,12 +290,40 @@ function (_Component) {
   return VideoCoverFallback;
 }(external_react_["Component"]);
 
+VideoCoverFallback_VideoCoverFallback.propTypes = {
+  style: external_prop_types_default.a.object,
+  onFallbackDidMount: external_prop_types_default.a.func,
+  onFallbackWillUnmount: external_prop_types_default.a.func,
+  videoOptions: external_prop_types_default.a.object,
+  forceFallback: external_prop_types_default.a.bool,
+  remeasureOnWindowResize: external_prop_types_default.a.bool,
+  className: external_prop_types_default.a.string
+};
 /* harmony default export */ var lib_VideoCoverFallback = (VideoCoverFallback_VideoCoverFallback);
 // CONCATENATED MODULE: ./lib/index.js
+function lib_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { lib_typeof = function _typeof(obj) { return typeof obj; }; } else { lib_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return lib_typeof(obj); }
 
+function lib_extends() { lib_extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return lib_extends.apply(this, arguments); }
 
+function lib_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { lib_defineProperty(target, key, source[key]); }); } return target; }
 
+function lib_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function lib_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function lib_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function lib_createClass(Constructor, protoProps, staticProps) { if (protoProps) lib_defineProperties(Constructor.prototype, protoProps); if (staticProps) lib_defineProperties(Constructor, staticProps); return Constructor; }
+
+function lib_possibleConstructorReturn(self, call) { if (call && (lib_typeof(call) === "object" || typeof call === "function")) { return call; } return lib_assertThisInitialized(self); }
+
+function lib_assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function lib_getPrototypeOf(o) { lib_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return lib_getPrototypeOf(o); }
+
+function lib_inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) lib_setPrototypeOf(subClass, superClass); }
+
+function lib_setPrototypeOf(o, p) { lib_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return lib_setPrototypeOf(o, p); }
 
 
 
@@ -407,18 +342,18 @@ function (_Component) {
 var lib_VideoCover =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(VideoCover, _Component);
+  lib_inherits(VideoCover, _Component);
 
   function VideoCover() {
-    _classCallCheck(this, VideoCover);
+    lib_classCallCheck(this, VideoCover);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(VideoCover).apply(this, arguments));
+    return lib_possibleConstructorReturn(this, lib_getPrototypeOf(VideoCover).apply(this, arguments));
   }
 
-  _createClass(VideoCover, [{
+  lib_createClass(VideoCover, [{
     key: "render",
     value: function render() {
-      var style = _objectSpread({
+      var style = lib_objectSpread({
         width: '100%',
         height: '100%'
       }, this.props.style, {
@@ -429,7 +364,7 @@ function (_Component) {
         return external_react_default.a.createElement(lib_VideoCoverFallback, this.props);
       }
 
-      return external_react_default.a.createElement("video", Object.assign({
+      return external_react_default.a.createElement("video", lib_extends({
         className: this.props.className,
         style: style
       }, this.props.videoOptions));
@@ -439,6 +374,60 @@ function (_Component) {
   return VideoCover;
 }(external_react_["Component"]);
 
+lib_VideoCover.propTypes = {
+  /**
+   * This component will use object-fit: cover if available,
+   * that is in all modern browsers except IE.
+   * This prop forces use of the fallback. This is helpful during troubleshooting,
+   * but apart from that you should not use it.
+   * default: false
+   */
+  forceFallback: external_prop_types_default.a.bool,
+
+  /**
+   * If set, an event listener on window-resize is added when the Fallback is used.
+   * It will re-evaluate the aspect-ratio and update the styles if necessary.
+   * This has no effect if the fallback is not used.
+   * The classic example where it makes sense to use this is when using a background video.
+   * If you need to react to different events to re-measure the aspect-ratio
+   * please see the onFallbackDidMount prop.
+   * default: false
+   */
+  remeasureOnWindowResize: external_prop_types_default.a.bool,
+
+  /**
+   * Will be executed when the Fallback is mounted.
+   * The only parameter is a function, which can be used to force a re-measuring,
+   * for example after the size of the surrounding container has changed.
+   * Please note that this will only be invoked if the fallback is used, that is in IE.
+   * See ResizableCoverExample for an example implementation.
+   */
+  onFallbackDidMount: external_prop_types_default.a.func,
+
+  /**
+   * Will be executed before the Fallback unmounts.
+   * You probably want to use this to clear any event-listeners added in onFallbackDidMount.
+   */
+  onFallbackWillUnmount: external_prop_types_default.a.func,
+
+  /**
+   * All members of videoOptions will be passed as props to the <video/>.
+   */
+  videoOptions: external_prop_types_default.a.object,
+
+  /**
+   * Additional styles which will be merged with those defined by this component.
+   * Please note that some styles are not possible to override, in particular:
+   *   - object-fit: cover (when the fallback is not used)
+   *   - position: relative and overflow: hidden (when the fallback is used)
+   */
+  style: external_prop_types_default.a.object,
+
+  /**
+   * Use this to set a custom className.
+   */
+  className: external_prop_types_default.a.string
+};
 lib_VideoCover.defaultProps = {
   forceFallback: false,
   remeasureOnWindowResize: false
