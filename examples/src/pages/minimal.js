@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import VideoCover from '../lib';
+import VideoCover from '../../../../lib';
+import Page from '../components/Page';
 
 class MinimalCoverExample extends Component {
   render() {
@@ -18,17 +19,19 @@ class MinimalCoverExample extends Component {
       title: 'click to play/pause',
     };
     return (
-      <div
-        style={{
-          width: '300px',
-          height: '300px',
-          overflow: 'hidden',
-        }}
-      >
-        <VideoCover
-          videoOptions={videoOptions}
-        />
-      </div>
+      <Page>
+        <div
+          style={{
+            width: '300px',
+            height: '300px',
+            overflow: 'hidden',
+          }}
+        >
+          <VideoCover
+            videoOptions={videoOptions}
+          />
+        </div>
+      </Page>
     );
   }
 }

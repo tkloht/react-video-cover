@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import css from './NavBar.css';
+import { Link } from 'gatsby';
+import css from './NavBar.module.css';
 import NavItem from './NavItem';
 import { GithubLogo } from './Icons.js';
 /* global CONFIG */

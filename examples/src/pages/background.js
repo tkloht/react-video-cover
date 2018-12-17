@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Cover from '../lib';
+import Cover from '../../../../lib';
+import Page from '../components/Page'
 
 const style = {
   width: '100vw',
@@ -19,21 +20,24 @@ class CoverExample extends Component {
     const videoOptions = {
       src: 'http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4',
       autoPlay: true,
+      muted: true,
       loop: true,
     };
 
     return (
-      <div style={style} >
-        <Cover
-          videoOptions={videoOptions}
-          remeasureOnWindowResize
-          getResizeNotifier={resizeNotifier => {
-            this.setState({
-              resizeNotifier,
-            });
-          }}
-        />
-      </div>
+      <Page>
+        <div style={style} >
+          <Cover
+            videoOptions={videoOptions}
+            remeasureOnWindowResize
+            getResizeNotifier={resizeNotifier => {
+              this.setState({
+                resizeNotifier,
+              });
+            }}
+          />
+        </div>
+      </Page>
     );
   }
 }

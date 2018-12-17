@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import NavBar from './NavBar';
-import css from './styles.css';
+import css from '../pages/styles.module.css';
 
 const propTypes = {
   children: PropTypes.element,
