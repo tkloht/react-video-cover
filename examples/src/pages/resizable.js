@@ -3,7 +3,8 @@ import cx from 'classnames';
 import Resize from 'react-simple-resize';
 import Page from '../components/Page';
 
-import Cover from '../../../lib';
+import Cover from 'react-video-cover';
+// import Cover from '../../../dist/lib';
 import css from './styles.module.css';
 import { RefreshIcon } from '../components/Icons';
 

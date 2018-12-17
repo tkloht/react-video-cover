@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Cover from '../../../lib';
+import Cover from 'react-video-cover';
+// import Cover from '../../../dist/lib';
 import Page from '../components/Page'
 
 const style = {
