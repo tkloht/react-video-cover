@@ -3,6 +3,7 @@ const path = require("path");
 module.exports = {
   mode: "production",
   entry: "./lib/index.js",
+  target: "node",
   output: {
     path: path.resolve(__dirname, "dist/lib"),
     filename: "index.js",
