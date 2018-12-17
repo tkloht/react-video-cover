@@ -1,5 +1,5 @@
 import React from 'react';
-import SVGButtonStyles from './SVGButton.css';
+import SVGButtonStyles from './SVGButton.module.css';
 /* eslint-disable max-len */
 
 /* source: https://github.com/gilbarbara/logos */

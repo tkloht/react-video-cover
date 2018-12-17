@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'gatsby';
 
-import css from './NavBar.css';
+import css from './NavBar.module.css';
 
 class Navitem extends Component {
 
@@ -14,13 +14,13 @@ class Navitem extends Component {
   render() {
     return (
       <li>
-        <NavLink
+        <Link
           activeClassName={css.active}
           to={this.props.to}
         >
           {this.props.label}
           <div className={css.activeItemIndicator} />
-        </NavLink>
+        </Link>
       </li>
     );
   }

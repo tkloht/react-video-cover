@@ -7,7 +7,7 @@
 		exports["react-video-cover"] = factory(require("prop-types"), require("react"));
 	else
 		root["react-video-cover"] = factory(root["prop-types"], root["react"]);
-})(window, function(__WEBPACK_EXTERNAL_MODULE__0__, __WEBPACK_EXTERNAL_MODULE__1__) {
+})(global, function(__WEBPACK_EXTERNAL_MODULE__0__, __WEBPACK_EXTERNAL_MODULE__1__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
