@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import VideoCover from '../../../../lib';
+import VideoCover from '../../../lib';
 import Page from '../components/Page';
 
 class MinimalCoverExample extends Component {
