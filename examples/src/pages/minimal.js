@@ -19,6 +19,8 @@ class MinimalCoverExample extends Component {
         }
       },
       title: 'click to play/pause',
+      autoPlay: true,
+      playsInline: true
     };
     return (
       <Page>

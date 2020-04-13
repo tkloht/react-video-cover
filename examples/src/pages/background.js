@@ -24,6 +24,7 @@ class CoverExample extends Component {
       autoPlay: true,
       muted: true,
       loop: true,
+      playsInline: true
     };
 
     return (
