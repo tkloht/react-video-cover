@@ -6,7 +6,7 @@ import Page from '../components/Page';
 class MinimalCoverExample extends Component {
   render() {
     const videoOptions = {
-      src: 'http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4',
+      src: 'cat.mp4',
       ref: videoRef => {
         this.videoRef = videoRef;
       },

@@ -19,7 +19,7 @@ class CoverExample extends Component {
 
   render() {
     const videoOptions = {
-      src: 'http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4',
+      src: 'golden-gate.mp4',
       autoPlay: true,
       muted: true,
       loop: true,
