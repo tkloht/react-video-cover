@@ -7,6 +7,7 @@ import Cover from 'react-video-cover';
 // import Cover from '../../../dist/lib';
 import css from './styles.module.css';
 import { RefreshIcon } from '../components/Icons';
+import { withPrefix } from "gatsby"
 
 class CoverExample extends Component {
 
@@ -20,7 +21,7 @@ class CoverExample extends Component {
 
   render() {
     const videoOptions = {
-      src: '/roadtrip.mp4',
+      src: withPrefix('/roadtrip.mp4'),
       ref: videoRef => {
         this.videoRef = videoRef;
       },

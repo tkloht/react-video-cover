@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Cover from 'react-video-cover';
 // import Cover from '../../../dist/lib';
 import Page from '../components/Page'
+import { withPrefix } from "gatsby"
 
 const style = {
   width: '100vw',
@@ -19,7 +20,7 @@ class CoverExample extends Component {
 
   render() {
     const videoOptions = {
-      src: '/golden-gate.mp4',
+      src: withPrefix('/golden-gate.mp4'),
       autoPlay: true,
       muted: true,
       loop: true,

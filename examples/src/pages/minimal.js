@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import VideoCover from 'react-video-cover';
 // import VideoCover from '../../../dist/lib';
 import Page from '../components/Page';
+import { withPrefix } from "gatsby"
 
 class MinimalCoverExample extends Component {
   render() {
     const videoOptions = {
-      src: '/cat.mp4',
+      src: withPrefix('/cat.mp4'),
       ref: videoRef => {
         this.videoRef = videoRef;
       },
