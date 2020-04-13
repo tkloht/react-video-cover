@@ -10,9 +10,9 @@ npm install --save react-video-cover
 ```
 
 ## Basic Usage
-Okay, let's say you have a simple video tag like this
+Let's say you have a video tag like this
 ```html
-<video src="http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4" />
+<video src="golden-gate.mp4" />
 ```
 Now you want to display this video so that it always fills some container, while keeping the correct aspect ratio. For this example the container will be 300px by 300px:
 ```js
@@ -21,7 +21,7 @@ Now you want to display this video so that it always fills some container, while
     height: '300px',
     overflow: 'hidden',
   }}>
-    <video src="http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4" />
+    <video src="golden-gate.mp4" />
   </div>
 ```
 
@@ -38,11 +38,11 @@ We can use [object-fit: cover](https://developer.mozilla.org/en-US/docs/Web/CSS/
       width: '100%',
       height: '100%',
     }}
-    src="http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+    src="golden-gate.mp4"
   />
 </div>
 ```
-The only problem with this: [object-fit is not implemented by IE and Edge](http://caniuse.com/#feat=object-fit).
+The only problem with this: [object-fit is not implemented by IE 11](http://caniuse.com/#feat=object-fit).
 If you do not have to support IE, I would suggest that you stop right here.
 If you want to get the same effect in IE, simply replace the video tag with the react-video-cover component:
 ```js
@@ -51,7 +51,7 @@ If you want to get the same effect in IE, simply replace the video tag with the 
   height: '300px',
   overflow: 'hidden',
 }}>
-  <VideoCover videoOptions={{src: 'http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4'}} />
+  <VideoCover videoOptions={{src: 'golden-gate.mp4'}} />
 </div>
 ```
 react-video-cover will set width: 100% and height: 100% because I think these are sensible defaults. You can use the style prop to overwrite it.
@@ -62,7 +62,7 @@ Here is the complete example, which also allows you to play/pause by clicking th
 class MinimalCoverExample extends Component {
   render() {
     const videoOptions = {
-      src: 'http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4',
+      src: 'golden-gate.mp4',
       ref: videoRef => {
         this.videoRef = videoRef;
       },
