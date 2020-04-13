@@ -6,7 +6,7 @@ import Page from '../components/Page';
 class MinimalCoverExample extends Component {
   render() {
     const videoOptions = {
-      src: 'cat.mp4',
+      src: '/cat.mp4',
       ref: videoRef => {
         this.videoRef = videoRef;
       },

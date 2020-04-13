@@ -20,7 +20,7 @@ class CoverExample extends Component {
 
   render() {
     const videoOptions = {
-      src: 'roadtrip.mp4',
+      src: '/roadtrip.mp4',
       ref: videoRef => {
         this.videoRef = videoRef;
       },
