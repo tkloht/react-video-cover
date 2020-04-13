@@ -59,6 +59,8 @@ react-video-cover will set width: 100% and height: 100% because I think these ar
 Here is the complete example, which also allows you to play/pause by clicking the video:
 
 ```js
+import VideoCover from 'react-video-cover';
+
 class MinimalCoverExample extends Component {
   render() {
     const videoOptions = {
