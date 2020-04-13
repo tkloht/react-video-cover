@@ -14,10 +14,6 @@ const style = {
 };
 class CoverExample extends Component {
 
-  state = {
-    resizeNotifier: () => {},
-  }
-
   render() {
     const videoOptions = {
       src: withPrefix('/golden-gate.mp4'),
@@ -33,11 +29,6 @@ class CoverExample extends Component {
           <Cover
             videoOptions={videoOptions}
             remeasureOnWindowResize
-            getResizeNotifier={resizeNotifier => {
-              this.setState({
-                resizeNotifier,
-              });
-            }}
           />
         </div>
       </Page>
