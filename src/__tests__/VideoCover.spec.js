@@ -49,7 +49,7 @@ describe('VideoCover', () => {
       expect(wrapper).not.toHaveStyle('background-color');
       expect(wrapper).not.toHaveStyle('color');
       expect(wrapper).not.toHaveStyle('line-height');
-      const nextWrapper = wrapper.setProps({
+      wrapper.setProps({
         style: {
           backgroundColor: 'red',
           color: 'teal',
