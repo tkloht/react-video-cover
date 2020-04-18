@@ -1,6 +1,6 @@
-import React, { Component, CSSProperties } from "react";
+import React, { Component, CSSProperties } from 'react';
 
-import CoverFallback from "./VideoCoverFallback";
+import CoverFallback from './VideoCoverFallback';
 
 export type Props = {
   /**
@@ -69,14 +69,14 @@ class VideoCover extends Component<Props> {
 
   render() {
     const style: CSSProperties = {
-      width: "100%",
-      height: "100%",
+      width: '100%',
+      height: '100%',
       ...this.props.style,
-      objectFit: "cover",
+      objectFit: 'cover',
     };
     if (
       this.props.forceFallback ||
-      (typeof window !== "undefined" &&
+      (typeof window !== 'undefined' &&
         /MSIE|Trident|Edge/.test(window.navigator.userAgent))
     ) {
       return <CoverFallback {...this.props} />;

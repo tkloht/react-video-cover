@@ -24,11 +24,13 @@ describe('VideoCoverFallback', () => {
 
   it('should pass this.updateContainerRatio as parameter in onFallbackWillUnmount', () => {
     let resizeNotifier;
-    const wrapper = mount(<VideoCoverFallback
-      onFallbackDidMount={result => {
-        resizeNotifier = result;
-      }}
-    />);
+    const wrapper = mount(
+      <VideoCoverFallback
+        onFallbackDidMount={result => {
+          resizeNotifier = result;
+        }}
+      />
+    );
     expect(resizeNotifier).toEqual(wrapper.instance().updateContainerRatio);
   });
 
@@ -122,22 +124,29 @@ describe('VideoCoverFallback', () => {
   });
 
   it('should apply all props.videoOptions to the video tag', () => {
-    const wrapper = shallow(<VideoCoverFallback
-      videoOptions={{
-        src: 'http://some-video-url.mp4',
-      }}
-    />);
-    expect(wrapper.find('video')).toHaveProp('src', 'http://some-video-url.mp4');
+    const wrapper = shallow(
+      <VideoCoverFallback
+        videoOptions={{
+          src: 'http://some-video-url.mp4',
+        }}
+      />
+    );
+    expect(wrapper.find('video')).toHaveProp(
+      'src',
+      'http://some-video-url.mp4'
+    );
   });
 
   describe('container-styles', () => {
     it('should apply props.style to the container-div', () => {
-      const wrapper = shallow(<VideoCoverFallback
-        style={{
-          backgroundColor: 'teal',
-          lineHeight: '100px',
-        }}
-      />);
+      const wrapper = shallow(
+        <VideoCoverFallback
+          style={{
+            backgroundColor: 'teal',
+            lineHeight: '100px',
+          }}
+        />
+      );
       expect(wrapper).toHaveStyle('backgroundColor', 'teal');
       expect(wrapper).toHaveStyle('lineHeight', '100px');
     });
@@ -149,7 +158,9 @@ describe('VideoCoverFallback', () => {
     });
 
     it('should be possible to override width and height via props.style', () => {
-      const wrapper = shallow(<VideoCoverFallback style={{ width: '50%', height: '50%' }} />);
+      const wrapper = shallow(
+        <VideoCoverFallback style={{ width: '50%', height: '50%' }} />
+      );
       expect(wrapper).toHaveStyle('height', '50%');
       expect(wrapper).toHaveStyle('width', '50%');
     });
@@ -161,12 +172,14 @@ describe('VideoCoverFallback', () => {
     });
 
     it('should not be possible to override position and overflow', () => {
-      const wrapper = shallow(<VideoCoverFallback
-        style={{
-          position: 'fixed',
-          overflow: 'scroll',
-        }}
-      />);
+      const wrapper = shallow(
+        <VideoCoverFallback
+          style={{
+            position: 'fixed',
+            overflow: 'scroll',
+          }}
+        />
+      );
       expect(wrapper).toHaveStyle('position', 'relative');
       expect(wrapper).toHaveStyle('overflow', 'hidden');
     });

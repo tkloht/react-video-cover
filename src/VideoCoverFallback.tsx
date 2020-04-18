@@ -1,6 +1,6 @@
-import React, { Component, CSSProperties, SyntheticEvent } from "react";
+import React, { Component, CSSProperties, SyntheticEvent } from 'react';
 
-import { Props } from "./index";
+import { Props } from './index';
 
 type State = {
   innerRatio: number;
@@ -22,7 +22,7 @@ export default class VideoCoverFallback extends Component<Props, State> {
 
   componentDidMount() {
     this.updateContainerRatio();
-    if (typeof this.props.onFallbackDidMount === "function") {
+    if (typeof this.props.onFallbackDidMount === 'function') {
       this.props.onFallbackDidMount(this.updateContainerRatio);
     }
     if (this.props.remeasureOnWindowResize) {
@@ -44,7 +44,7 @@ export default class VideoCoverFallback extends Component<Props, State> {
 
   componentWillUnmount() {
     this.removeEventListeners();
-    if (typeof this.props.onFallbackWillUnmount === "function") {
+    if (typeof this.props.onFallbackWillUnmount === 'function') {
       this.props.onFallbackWillUnmount();
     }
   }
@@ -65,11 +65,11 @@ export default class VideoCoverFallback extends Component<Props, State> {
   }
 
   initEventListeners() {
-    window.addEventListener("resize", this.updateContainerRatio);
+    window.addEventListener('resize', this.updateContainerRatio);
   }
 
   removeEventListeners() {
-    window.removeEventListener("resize", this.updateContainerRatio);
+    window.removeEventListener('resize', this.updateContainerRatio);
   }
 
   private containerRef: HTMLElement | null = null;
@@ -83,32 +83,32 @@ export default class VideoCoverFallback extends Component<Props, State> {
   render() {
     const { innerRatio, outerRatio } = this.state;
     const style: CSSProperties = {
-      width: innerRatio > outerRatio ? "auto" : "100%",
-      height: innerRatio > outerRatio ? "100%" : "auto",
+      width: innerRatio > outerRatio ? 'auto' : '100%',
+      height: innerRatio > outerRatio ? '100%' : 'auto',
 
       /* the following is for centering the video.
       There has to be some better solution?!
       any help is very much appreciated :) */
-      position: "absolute",
+      position: 'absolute',
       top: -9999,
       bottom: -9999,
       left: -9999,
       right: -9999,
-      margin: "auto",
+      margin: 'auto',
     };
 
     const outerStyle: CSSProperties = {
-      width: "100%",
-      height: "100%",
+      width: '100%',
+      height: '100%',
       ...this.props.style,
-      position: "relative",
-      overflow: "hidden",
+      position: 'relative',
+      overflow: 'hidden',
     };
 
     return (
       <div
         style={outerStyle}
-        ref={(element) => {
+        ref={element => {
           this.containerRef = element;
         }}
         className={this.props.className}
@@ -127,4 +127,3 @@ export default class VideoCoverFallback extends Component<Props, State> {
     );
   }
 }
-
