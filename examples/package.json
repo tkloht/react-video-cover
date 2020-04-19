@@ -32,7 +32,9 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "devDependencies": {
-    "prettier": "^1.15.2"
+    "classnames": "^2.2.6",
+    "prettier": "^1.15.2",
+    "react-simple-resize": "^2.1.0"
   },
   "repository": {
     "type": "git",

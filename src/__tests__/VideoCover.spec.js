@@ -49,7 +49,7 @@ describe('VideoCover', () => {
       expect(wrapper).not.toHaveStyle('background-color');
       expect(wrapper).not.toHaveStyle('color');
       expect(wrapper).not.toHaveStyle('line-height');
-      const nextWrapper = wrapper.setProps({
+      wrapper.setProps({
         style: {
           backgroundColor: 'red',
           color: 'teal',
@@ -63,7 +63,9 @@ describe('VideoCover', () => {
       });
     });
     it('should be possible to override width and height props', () => {
-      const wrapper = shallow(<VideoCover style={{ width: '50%', height: '50%' }} />);
+      const wrapper = shallow(
+        <VideoCover style={{ width: '50%', height: '50%' }} />
+      );
       expect(wrapper).toHaveStyle('height', '50%');
       expect(wrapper).toHaveStyle('width', '50%');
     });
@@ -110,7 +112,8 @@ describe('VideoCover', () => {
       {
         name: 'Firefox',
         needsFallback: false,
-        value: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:44.0) Gecko/20100101 Firefox/44.0',
+        value:
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:44.0) Gecko/20100101 Firefox/44.0',
       },
     ];
 
@@ -123,7 +126,7 @@ describe('VideoCover', () => {
     userAgents.forEach(({ needsFallback, name, value }) => {
       it(`should ${
         needsFallback ? '' : 'NOT'
-        } render Fallback if ${name} userAgent is used`, () => {
+      } render Fallback if ${name} userAgent is used`, () => {
         setUserAgent(value);
         const wrapper = shallow(<VideoCover />);
         if (needsFallback) {

@@ -1,4 +1,4 @@
-import VideoCoverFallback from '../lib/VideoCoverFallback';
+import VideoCoverFallback from '../VideoCoverFallback';
 
 import React from 'react';
 import { shallow, mount } from 'enzyme';
@@ -7,7 +7,10 @@ describe('VideoCoverFallback', () => {
   it('should update container ratio when mounted', () => {
     const spy = jest.fn();
     class WithSpy extends VideoCoverFallback {
-      updateContainerRatio = spy;
+      constructor(props) {
+        super(props);
+        this.updateContainerRatio = spy;
+      }
     }
     mount(<WithSpy />);
     expect(spy).toBeCalled();
@@ -21,18 +24,23 @@ describe('VideoCoverFallback', () => {
 
   it('should pass this.updateContainerRatio as parameter in onFallbackWillUnmount', () => {
     let resizeNotifier;
-    const wrapper = mount(<VideoCoverFallback
-      onFallbackDidMount={result => {
-        resizeNotifier = result;
-      }}
-    />);
+    const wrapper = mount(
+      <VideoCoverFallback
+        onFallbackDidMount={result => {
+          resizeNotifier = result;
+        }}
+      />
+    );
     expect(resizeNotifier).toEqual(wrapper.instance().updateContainerRatio);
   });
 
   it('should initialize window-resize eventlisteners if props.remeasureOnWindowResize is set', () => {
     const spy = jest.fn();
     class WithSpy extends VideoCoverFallback {
-      initEventListeners = spy;
+      constructor(props) {
+        super(props);
+        this.initEventListeners = spy;
+      }
     }
     mount(<WithSpy remeasureOnWindowResize />);
     expect(spy).toBeCalled();
@@ -41,7 +49,10 @@ describe('VideoCoverFallback', () => {
   it('should NOT initialize window-resize eventlisteners if props.remeasureOnWindowResize is not set', () => {
     const spy = jest.fn();
     class WithSpy extends VideoCoverFallback {
-      initEventListeners = spy;
+      constructor(props) {
+        super(props);
+        this.initEventListeners = spy;
+      }
     }
     mount(<WithSpy />);
     expect(spy).not.toBeCalled();
@@ -50,7 +61,10 @@ describe('VideoCoverFallback', () => {
   it('should remove eventlisteners before unmount', () => {
     const spy = jest.fn();
     class WithSpy extends VideoCoverFallback {
-      removeEventListeners = spy;
+      constructor(props) {
+        super(props);
+        this.removeEventListeners = spy;
+      }
     }
     const wrapper = mount(<WithSpy />);
     wrapper.unmount();
@@ -61,9 +75,13 @@ describe('VideoCoverFallback', () => {
     const addSpy = jest.fn();
     const removeSpy = jest.fn();
     class WithSpy extends VideoCoverFallback {
-      initEventListeners = addSpy;
-      removeEventListeners = removeSpy;
+      constructor(props) {
+        super(props);
+        this.initEventListeners = addSpy;
+        this.removeEventListeners = removeSpy;
+      }
     }
+
     const wrapper = mount(<WithSpy />);
     expect(addSpy).not.toBeCalled();
     expect(removeSpy).not.toBeCalled();
@@ -89,7 +107,10 @@ describe('VideoCoverFallback', () => {
   it('should invoke updateVideoRatio on loadedData media event', () => {
     const spy = jest.fn();
     class WithSpy extends VideoCoverFallback {
-      updateVideoRatio = spy;
+      constructor(props) {
+        super(props);
+        this.updateVideoRatio = spy;
+      }
     }
     const wrapper = shallow(<WithSpy />);
     const video = wrapper.find('video');
@@ -103,22 +124,29 @@ describe('VideoCoverFallback', () => {
   });
 
   it('should apply all props.videoOptions to the video tag', () => {
-    const wrapper = shallow(<VideoCoverFallback
-      videoOptions={{
-        src: 'http://some-video-url.mp4',
-      }}
-    />);
-    expect(wrapper.find('video')).toHaveProp('src', 'http://some-video-url.mp4');
+    const wrapper = shallow(
+      <VideoCoverFallback
+        videoOptions={{
+          src: 'http://some-video-url.mp4',
+        }}
+      />
+    );
+    expect(wrapper.find('video')).toHaveProp(
+      'src',
+      'http://some-video-url.mp4'
+    );
   });
 
   describe('container-styles', () => {
     it('should apply props.style to the container-div', () => {
-      const wrapper = shallow(<VideoCoverFallback
-        style={{
-          backgroundColor: 'teal',
-          lineHeight: '100px',
-        }}
-      />);
+      const wrapper = shallow(
+        <VideoCoverFallback
+          style={{
+            backgroundColor: 'teal',
+            lineHeight: '100px',
+          }}
+        />
+      );
       expect(wrapper).toHaveStyle('backgroundColor', 'teal');
       expect(wrapper).toHaveStyle('lineHeight', '100px');
     });
@@ -130,7 +158,9 @@ describe('VideoCoverFallback', () => {
     });
 
     it('should be possible to override width and height via props.style', () => {
-      const wrapper = shallow(<VideoCoverFallback style={{ width: '50%', height: '50%' }} />);
+      const wrapper = shallow(
+        <VideoCoverFallback style={{ width: '50%', height: '50%' }} />
+      );
       expect(wrapper).toHaveStyle('height', '50%');
       expect(wrapper).toHaveStyle('width', '50%');
     });
@@ -142,12 +172,14 @@ describe('VideoCoverFallback', () => {
     });
 
     it('should not be possible to override position and overflow', () => {
-      const wrapper = shallow(<VideoCoverFallback
-        style={{
-          position: 'fixed',
-          overflow: 'scroll',
-        }}
-      />);
+      const wrapper = shallow(
+        <VideoCoverFallback
+          style={{
+            position: 'fixed',
+            overflow: 'scroll',
+          }}
+        />
+      );
       expect(wrapper).toHaveStyle('position', 'relative');
       expect(wrapper).toHaveStyle('overflow', 'hidden');
     });
@@ -187,7 +219,10 @@ describe('VideoCoverFallback', () => {
         },
       };
       class WithRef extends VideoCoverFallback {
-        containerRef = mockRef;
+        constructor(props) {
+          super(props);
+          this.containerRef = mockRef;
+        }
       }
       const wrapper = shallow(<WithRef />);
       wrapper.instance().updateContainerRatio();

@@ -1,14 +1,19 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component, CSSProperties, SyntheticEvent } from 'react';
 
-class VideoCoverFallback extends Component {
+import { Props } from './index';
 
-  constructor(props) {
+type State = {
+  innerRatio: number;
+  outerRatio: number;
+};
+
+export default class VideoCoverFallback extends Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
-      innerRatio: undefined,
-      outerRatio: undefined,
-    }
+      innerRatio: 0,
+      outerRatio: 0,
+    };
     this.updateContainerRatio = this.updateContainerRatio.bind(this);
     this.updateVideoRatio = this.updateVideoRatio.bind(this);
     this.initEventListeners = this.initEventListeners.bind(this);
@@ -25,8 +30,10 @@ class VideoCoverFallback extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.remeasureOnWindowResize !== this.props.remeasureOnWindowResize) {
+  componentWillReceiveProps(nextProps: Props) {
+    if (
+      nextProps.remeasureOnWindowResize !== this.props.remeasureOnWindowResize
+    ) {
       if (nextProps.remeasureOnWindowResize) {
         this.initEventListeners();
       } else {
@@ -51,11 +58,11 @@ class VideoCoverFallback extends Component {
     }
   }
 
-  updateVideoRatio(width, height) {
+  updateVideoRatio(width: number, height: number) {
     this.setState({
       innerRatio: width / height,
     });
-  };
+  }
 
   initEventListeners() {
     window.addEventListener('resize', this.updateContainerRatio);
@@ -65,6 +72,8 @@ class VideoCoverFallback extends Component {
     window.removeEventListener('resize', this.updateContainerRatio);
   }
 
+  private containerRef: HTMLElement | null = null;
+
   /**
    * We can get the width and height of a video after it has started loading.
    * Then we can compare the aspect ratio of the video to that of it's surrounding container.
@@ -73,7 +82,7 @@ class VideoCoverFallback extends Component {
    */
   render() {
     const { innerRatio, outerRatio } = this.state;
-    const style = {
+    const style: CSSProperties = {
       width: innerRatio > outerRatio ? 'auto' : '100%',
       height: innerRatio > outerRatio ? '100%' : 'auto',
 
@@ -81,14 +90,14 @@ class VideoCoverFallback extends Component {
       There has to be some better solution?!
       any help is very much appreciated :) */
       position: 'absolute',
-      top: '-9999px',
-      bottom: '-9999px',
-      left: '-9999px',
-      right: '-9999px',
+      top: -9999,
+      bottom: -9999,
+      left: -9999,
+      right: -9999,
       margin: 'auto',
     };
 
-    const outerStyle = {
+    const outerStyle: CSSProperties = {
       width: '100%',
       height: '100%',
       ...this.props.style,
@@ -99,12 +108,17 @@ class VideoCoverFallback extends Component {
     return (
       <div
         style={outerStyle}
-        ref={ref => { this.containerRef = ref; }}
+        ref={element => {
+          this.containerRef = element;
+        }}
         className={this.props.className}
       >
         <video
-          onLoadedData={event => {
-            this.updateVideoRatio(event.target.videoWidth, event.target.videoHeight);
+          onLoadedData={(event: SyntheticEvent<HTMLVideoElement>) => {
+            this.updateVideoRatio(
+              event.currentTarget.videoWidth,
+              event.currentTarget.videoHeight
+            );
           }}
           style={style}
           {...this.props.videoOptions}
@@ -113,15 +127,3 @@ class VideoCoverFallback extends Component {
     );
   }
 }
-
-VideoCoverFallback.propTypes = {
-  style: PropTypes.object,
-  onFallbackDidMount: PropTypes.func,
-  onFallbackWillUnmount: PropTypes.func,
-  videoOptions: PropTypes.object,
-  forceFallback: PropTypes.bool,
-  remeasureOnWindowResize: PropTypes.bool,
-  className: PropTypes.string,
-}
-
-export default VideoCoverFallback;

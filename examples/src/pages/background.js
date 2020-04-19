@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Cover from 'react-video-cover';
-// import Cover from '../../../dist/lib';
+// import Cover from 'react-video-cover';
+import Cover from '../../../dist';
 import Page from '../components/Page'
 import { withPrefix } from "gatsby"
 
